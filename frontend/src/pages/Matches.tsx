@@ -48,6 +48,7 @@ export function Matches({ student, onStart, onFollowUp }: Props) {
       <ol className="match-list">
         {recs.map((r, i) => (
           <MatchRow key={r.careerId} rank={i + 1} rec={r} student={student}
+                    placedForVariety={recs.slice(0, i).some(above => shownFit(above) < shownFit(r))}
                     open={open === r.careerId}
                     onToggle={() => setOpen(o => (o === r.careerId ? null : r.careerId))}
                     onContested={load} onFollowUp={onFollowUp} />
@@ -57,9 +58,18 @@ export function Matches({ student, onStart, onFollowUp }: Props) {
   );
 }
 
+/** The fit as the student sees it (whole percent). */
+const shownFit = (r: Recommendation) => Math.round(r.score * 100);
+
 interface RowProps {
   rank: number;
   rec: Recommendation;
+  /**
+   * True when this match shows a higher fit than one listed above it. That only
+   * happens through the diversity rule (a similar career already picked costs a
+   * little), so we say so instead of leaving the order looking wrong.
+   */
+  placedForVariety: boolean;
   student: Student;
   open: boolean;
   onToggle: () => void;
@@ -67,7 +77,7 @@ interface RowProps {
   onFollowUp: (q: Question | null) => void;
 }
 
-function MatchRow({ rank, rec, student, open, onToggle, onContested, onFollowUp }: RowProps) {
+function MatchRow({ rank, rec, student, placedForVariety, open, onToggle, onContested, onFollowUp }: RowProps) {
   const [explanation, setExplanation] = useState<Explanation | null>(null);
   const [explaining, setExplaining] = useState(false);
   const [contesting, setContesting] = useState(false);
@@ -89,6 +99,9 @@ function MatchRow({ rank, rec, student, open, onToggle, onContested, onFollowUp 
         <span className="match__title">
           <span className="match__name">{rec.title}</span>
           <span className="match__blurb">{rec.summary}</span>
+          {placedForVariety && (
+            <span className="match__note">Listed after a lower match so your three aren't all the same kind of work.</span>
+          )}
         </span>
         <span className="match__fit">
           <span className="match__pct">{pct(rec.score)}</span>

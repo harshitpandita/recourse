@@ -137,6 +137,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .match__title { display: flex; flex-direction: column; gap: 2px; }
 .match__name { font-size: var(--step-2); font-weight: 600; letter-spacing: -0.015em; }
 .match__blurb { color: var(--text-secondary); }
+.match__note { color: var(--text-muted); font-size: var(--step--1); font-style: italic; margin-top: var(--space-1); }
 .match__fit { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; }
 .match__pct { font-size: var(--step-2); font-weight: 600; font-variant-numeric: tabular-nums; }
 .match__body { padding: 0 0 var(--space-6) 64px; }
@@ -218,4 +219,11 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
   .belief__summary { grid-template-columns: 1fr; gap: var(--space-2); }
   .log-item .outcome { padding-left: 0; }
   .display { font-size: var(--step-3); }
+}
+
+/* Phones: the four tabs don't fit on one line, so show them as a 2 x 2 grid
+   instead of a sideways-scrolling row that hides the last tab. */
+@media (max-width: 520px) {
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; overflow-x: visible; }
+  .tab { text-align: center; }
 }
