@@ -98,8 +98,10 @@ public class ExplanationService {
               .append(r.reasons().stream().map(f -> f.label().toLowerCase()).collect(Collectors.joining(", ")));
         }
         sb.append(". ");
+        // Drop the option's own full stop so the sentence doesn't end in ".".
         r.evidence().stream().filter(e -> e.optionText() != null).findFirst().ifPresent(e ->
-                sb.append("For example, you chose \"").append(e.optionText()).append("\". "));
+                sb.append("For example, you chose \"").append(e.optionText().strip().replaceAll("\\.+$", ""))
+                  .append("\". "));
         if (!r.concerns().isEmpty()) {
             sb.append("One thing to think about: your answers suggest ")
               .append(r.concerns().get(0).label().toLowerCase())

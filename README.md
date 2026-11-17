@@ -138,7 +138,7 @@ cd backend
 mvn test
 ```
 
-This runs 67 tests:
+This runs 70 tests:
 
 | Area | Tests |
 |---|---|
@@ -146,6 +146,7 @@ This runs 67 tests:
 | Data files: questions and careers load and are valid | 7 |
 | End-to-end flow through the real services and an in-memory database | 8 |
 | Demo seed: personas, idempotency, and the contest used in the live demo | 7 |
+| Explanation template: the fallback text used when the language model is unavailable | 3 |
 
 The frontend is type-checked as part of its build:
 
