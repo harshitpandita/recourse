@@ -25,3 +25,4 @@ _incoming/
 # Local working notes (not part of the repo)
 docs/STATUS.md
 prototypes/**/PROJECT_CONTEXT.md
+docs/PLAN.md
