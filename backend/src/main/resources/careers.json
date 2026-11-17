@@ -3,7 +3,7 @@
     "id": "software-developer",
     "title": "Software developer",
     "summary": "Designs, builds and maintains software, from apps to large systems.",
-    "riasec": "ICR",
+    "riasec": "IC",
     "onetCode": "15-1252.00",
     "weights": {
       "values": {
@@ -48,7 +48,7 @@
     "id": "data-scientist",
     "title": "Data scientist",
     "summary": "Finds patterns in data and builds models that help organisations decide.",
-    "riasec": "ICE",
+    "riasec": "IC",
     "onetCode": "15-2051.00",
     "weights": {
       "values": {
@@ -177,7 +177,7 @@
     "id": "doctor",
     "title": "Doctor (MBBS)",
     "summary": "Diagnoses and treats illness; can specialise after MBBS.",
-    "riasec": "ISR",
+    "riasec": "SI",
     "onetCode": "29-1215.00",
     "weights": {
       "values": {
@@ -225,7 +225,7 @@
     "id": "nurse",
     "title": "Nurse",
     "summary": "Cares for patients, gives treatment and works alongside doctors.",
-    "riasec": "SIC",
+    "riasec": "SCI",
     "onetCode": "29-1141.00",
     "weights": {
       "values": {
@@ -267,7 +267,7 @@
     "id": "pharmacist",
     "title": "Pharmacist",
     "summary": "Prepares and dispenses medicines and advises on their safe use.",
-    "riasec": "ICS",
+    "riasec": "ISC",
     "onetCode": "29-1051.00",
     "weights": {
       "values": {
@@ -307,7 +307,7 @@
     "id": "clinical-psychologist",
     "title": "Psychologist",
     "summary": "Assesses and supports people with mental health and behavioural concerns.",
-    "riasec": "ISA",
+    "riasec": "SI",
     "onetCode": "19-3033.00",
     "weights": {
       "values": {
@@ -327,7 +327,8 @@
     "routes": [
       "Any stream; psychology in Class 12 helps",
       "BA / B.Sc Psychology",
-      "MA / M.Sc Psychology; RCI-recognised M.Phil for clinical practice"
+      "MA / M.Sc Psychology",
+      "For clinical practice: RCI-regulated MA Clinical Psychology (2 years), which replaces the M.Phil Clinical Psychology being phased out"
     ],
     "entranceExams": [
       "CUET-UG",
@@ -353,7 +354,7 @@
     "id": "school-teacher",
     "title": "School teacher",
     "summary": "Teaches and mentors students in a subject they know well.",
-    "riasec": "SAE",
+    "riasec": "S",
     "onetCode": "25-2031.00",
     "weights": {
       "values": {
@@ -396,7 +397,7 @@
     "id": "lawyer",
     "title": "Lawyer",
     "summary": "Advises clients and argues cases in court or handles legal work for companies.",
-    "riasec": "ESI",
+    "riasec": "ECI",
     "onetCode": "23-1011.00",
     "weights": {
       "values": {
@@ -484,7 +485,7 @@
     "id": "financial-analyst",
     "title": "Financial analyst",
     "summary": "Studies companies and markets to guide investment decisions.",
-    "riasec": "CIE",
+    "riasec": "CEI",
     "onetCode": "13-2051.00",
     "weights": {
       "values": {
@@ -569,7 +570,7 @@
     "id": "marketing-manager",
     "title": "Marketing manager",
     "summary": "Plans how products reach and win over customers.",
-    "riasec": "EAC",
+    "riasec": "EC",
     "onetCode": "11-2021.00",
     "weights": {
       "values": {
@@ -613,8 +614,8 @@
     "id": "entrepreneur",
     "title": "Founder / entrepreneur",
     "summary": "Starts and runs a business, often from an idea of their own.",
-    "riasec": "ECA",
-    "onetCode": "11-1021.00",
+    "riasec": "EC",
+    "onetCode": "11-1011.00",
     "weights": {
       "values": {
         "independence": 0.9,
@@ -643,8 +644,8 @@
     "entranceExams": [],
     "sources": [
       {
-        "label": "O*NET OnLine 11-1021.00",
-        "url": "https://www.onetonline.org/link/summary/11-1021.00"
+        "label": "O*NET OnLine 11-1011.00 (closest equivalent: Chief Executives)",
+        "url": "https://www.onetonline.org/link/summary/11-1011.00"
       },
       {
         "label": "Startup India",
@@ -657,7 +658,7 @@
     "id": "management-consultant",
     "title": "Management consultant",
     "summary": "Helps organisations solve business problems and improve how they work.",
-    "riasec": "EIC",
+    "riasec": "CIE",
     "onetCode": "13-1111.00",
     "weights": {
       "values": {
@@ -697,7 +698,7 @@
     "id": "graphic-designer",
     "title": "Graphic designer",
     "summary": "Creates visuals for brands, products, media and print.",
-    "riasec": "AER",
+    "riasec": "AC",
     "onetCode": "27-1024.00",
     "weights": {
       "values": {
@@ -742,7 +743,7 @@
     "id": "ux-designer",
     "title": "UX / product designer",
     "summary": "Designs how apps and websites work and feel for the people using them.",
-    "riasec": "AIS",
+    "riasec": "IAC",
     "onetCode": "15-1255.00",
     "weights": {
       "values": {
@@ -785,7 +786,7 @@
     "id": "architect",
     "title": "Architect",
     "summary": "Designs buildings and spaces that are safe, useful and beautiful.",
-    "riasec": "AIR",
+    "riasec": "RCA",
     "onetCode": "17-1011.00",
     "weights": {
       "values": {
@@ -827,7 +828,7 @@
     "id": "journalist",
     "title": "Journalist",
     "summary": "Reports and writes stories about events, people and issues.",
-    "riasec": "AEI",
+    "riasec": "AIE",
     "onetCode": "27-3023.00",
     "weights": {
       "values": {
@@ -851,7 +852,7 @@
     ],
     "entranceExams": [
       "CUET-UG",
-      "IIMC entrance (PG diploma)"
+      "CUET-PG (also used by IIMC for its PG Diplomas)"
     ],
     "sources": [
       {
@@ -861,6 +862,10 @@
       {
         "label": "NTA (JEE Main / NEET-UG / CUET-UG)",
         "url": "https://nta.ac.in"
+      },
+      {
+        "label": "IIMC admission notice 2026-27",
+        "url": "https://iimc.gov.in/files/announcements/Admission-Notice-2026-27.pdf"
       }
     ],
     "verified": false
@@ -869,7 +874,7 @@
     "id": "research-scientist",
     "title": "Research scientist",
     "summary": "Runs experiments to discover how the natural world works.",
-    "riasec": "IRA",
+    "riasec": "IR",
     "onetCode": "19-1021.00",
     "weights": {
       "values": {
@@ -913,7 +918,7 @@
     "id": "chef",
     "title": "Chef",
     "summary": "Cooks, creates dishes and runs kitchens in restaurants or hotels.",
-    "riasec": "RAE",
+    "riasec": "ERC",
     "onetCode": "35-1011.00",
     "weights": {
       "values": {
@@ -953,7 +958,7 @@
     "id": "electrician",
     "title": "Electrician",
     "summary": "Installs and repairs electrical wiring and equipment.",
-    "riasec": "RCI",
+    "riasec": "RC",
     "onetCode": "47-2111.00",
     "weights": {
       "values": {
@@ -992,7 +997,7 @@
     "id": "social-worker",
     "title": "Social worker",
     "summary": "Helps individuals and communities through difficult circumstances.",
-    "riasec": "SEA",
+    "riasec": "S",
     "onetCode": "21-1021.00",
     "weights": {
       "values": {
@@ -1014,7 +1019,7 @@
     ],
     "entranceExams": [
       "CUET-UG",
-      "TISS entrance (for MSW)"
+      "CUET-PG (also used by TISS for MA Social Work)"
     ],
     "sources": [
       {
@@ -1026,8 +1031,8 @@
         "url": "https://nta.ac.in"
       },
       {
-        "label": "TISS",
-        "url": "https://admissions.tiss.edu"
+        "label": "TISS admissions (CUET-PG)",
+        "url": "https://admissions.tiss.ac.in/view/6/admissions/ma-admissions/selection-procedure/"
       }
     ],
     "verified": false

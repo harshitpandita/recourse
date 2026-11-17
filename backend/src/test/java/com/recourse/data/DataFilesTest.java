@@ -69,7 +69,11 @@ class DataFilesTest {
         for (Career c : careers.all()) {
             assertTrue(ids.add(c.id()), "duplicate career " + c.id());
             assertFalse(c.sources().isEmpty(), c.id() + " has no source");
-            assertEquals(3, c.riasec().length(), c.id() + " needs a three-letter Holland code");
+            // O*NET lists one to three interest letters, strongest first.
+            assertTrue(c.riasec().matches("[RIASEC]{1,3}"),
+                    c.id() + " needs a Holland code of 1 to 3 RIASEC letters, got " + c.riasec());
+            assertEquals(c.riasec().length(), c.riasec().chars().distinct().count(),
+                    c.id() + " repeats a letter in its Holland code " + c.riasec());
         }
     }
 
