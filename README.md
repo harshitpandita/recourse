@@ -36,7 +36,7 @@ answers ──> evidence ──> beliefs ──> matches ──> explanation
 1. **Evidence.** Each answer option in `questions.json` maps to one or more pieces of evidence: an attribute, a direction (supports or contradicts) and a strength. Evidence is append-only.
 2. **Belief.** For each attribute, supporting and contradicting evidence are combined separately with a noisy-OR. Each new item closes part of the remaining gap, so repeated similar answers have diminishing effect. Confidence grows with the amount of evidence and falls when the evidence disagrees with itself.
 3. **Question selection.** Each question is scored by information value × importance × reliability × discrimination ÷ effort. After at least 12 questions, the assessment stops when 70% of attributes are known with reasonable confidence or no remaining question is worth asking. It never goes past 20.
-4. **Matching.** Each career has hand-set attribute weights. A match combines the four pillars (interests 40%, abilities 25%, values 20%, work style 15%). Every score can be traced down to individual pieces of evidence.
+4. **Matching.** Each career's interest weights come from its O\*NET interest code (one to three RIASEC letters, the first weighted most). Its work-value, work-style and ability weights are set by hand, informed by the O\*NET description (see [docs/career-verification.md](docs/career-verification.md)). A match combines the four pillars (interests 40%, abilities 25%, values 20%, work style 15%). Every score can be traced down to individual pieces of evidence.
 5. **Contest.** An objection adds counter-evidence, beliefs and ranking are recomputed, the change is logged, and a follow-up session focuses on the disputed attributes.
 
 ## Tech stack
