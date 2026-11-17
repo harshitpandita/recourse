@@ -1,0 +1,12 @@
+Operation,Calls,Median ms,p90 ms,Max ms
+Create student,10,3.2,3.9,3.9
+Start assessment (first question),10,4.3,4.9,5.1
+Answer a question (incl. next question),200,6.1,7.5,11.3
+Get recommendations,50,3.7,4.4,7.9
+Get profile (what we think),50,4.2,4.9,5.7
+Get evidence trail,10,3.1,3.7,3.8
+Explanation (template, uncached),10,24.2,29.8,30.2
+Contest a recommendation,10,8.8,11.1,11.7
+Answer a follow-up question,27,7.0,11.3,15.6
+Contest a single piece of evidence,10,9.5,12.0,28.5
+Get pushback log,10,3.9,4.9,6.2
