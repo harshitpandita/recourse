@@ -1,0 +1,349 @@
+[
+  {
+    "id": "q01",
+    "text": "Your team's project is behind schedule and stakeholders want an update tomorrow. What do you do first?",
+    "type": "scenario",
+    "dimensions_measured": ["reasoning", "execution"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Dig into the data to find exactly where the bottleneck is.", "scores": {"reasoning": 85, "execution": 55}},
+      {"id": "b", "text": "Start drafting the status update using what you already know.", "scores": {"reasoning": 40, "execution": 80}},
+      {"id": "c", "text": "Ask each team member for a quick verbal summary of their part.", "scores": {"reasoning": 55, "execution": 45}},
+      {"id": "d", "text": "Block time tomorrow morning to figure it out fresh.", "scores": {"reasoning": 20, "execution": 15}}
+    ]
+  },
+  {
+    "id": "q02",
+    "text": "You're given a spreadsheet full of numbers that don't seem to add up. What's your instinct?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["reasoning"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Trace the formulas cell by cell until I find the break.", "scores": {"reasoning": 90}},
+      {"id": "b", "text": "Compare it against a known-good version to spot differences.", "scores": {"reasoning": 70}},
+      {"id": "c", "text": "Ask whoever built it what might be wrong.", "scores": {"reasoning": 40}},
+      {"id": "d", "text": "Rebuild the parts I don't trust from scratch.", "scores": {"reasoning": 55}}
+    ]
+  },
+  {
+    "id": "q03",
+    "text": "I tend to break problems into smaller pieces before acting on them.",
+    "type": "likert",
+    "dimensions_measured": ["reasoning"],
+    "reliability": 0.6,
+    "effort": 1,
+    "options": [
+      {"id": "1", "text": "Strongly disagree", "scores": {"reasoning": 10}},
+      {"id": "2", "text": "Disagree", "scores": {"reasoning": 30}},
+      {"id": "3", "text": "Neutral", "scores": {"reasoning": 50}},
+      {"id": "4", "text": "Agree", "scores": {"reasoning": 70}},
+      {"id": "5", "text": "Strongly agree", "scores": {"reasoning": 90}}
+    ]
+  },
+  {
+    "id": "q04",
+    "text": "A tool you rely on daily gets replaced overnight with an unfamiliar one. What happens next?",
+    "type": "scenario",
+    "dimensions_measured": ["learning", "adaptability"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "I dive in and start experimenting until I understand it.", "scores": {"learning": 85, "adaptability": 80}},
+      {"id": "b", "text": "I look for a tutorial or documentation before touching it.", "scores": {"learning": 70, "adaptability": 55}},
+      {"id": "c", "text": "I ask a colleague to walk me through the basics.", "scores": {"learning": 45, "adaptability": 50}},
+      {"id": "d", "text": "I feel frustrated and try to find a way back to the old tool.", "scores": {"learning": 20, "adaptability": 15}}
+    ]
+  },
+  {
+    "id": "q05",
+    "text": "When learning something completely new, what usually works best for you?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["learning"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Jumping in and learning by doing, mistakes included.", "scores": {"learning": 80}},
+      {"id": "b", "text": "Reading or watching a structured overview first.", "scores": {"learning": 65}},
+      {"id": "c", "text": "Having someone teach me directly.", "scores": {"learning": 45}},
+      {"id": "d", "text": "Avoiding it until I absolutely have to.", "scores": {"learning": 15}}
+    ]
+  },
+  {
+    "id": "q06",
+    "text": "I actively seek out feedback so I can improve faster.",
+    "type": "likert",
+    "dimensions_measured": ["learning"],
+    "reliability": 0.6,
+    "effort": 1,
+    "options": [
+      {"id": "1", "text": "Strongly disagree", "scores": {"learning": 10}},
+      {"id": "2", "text": "Disagree", "scores": {"learning": 30}},
+      {"id": "3", "text": "Neutral", "scores": {"learning": 50}},
+      {"id": "4", "text": "Agree", "scores": {"learning": 70}},
+      {"id": "5", "text": "Strongly agree", "scores": {"learning": 90}}
+    ]
+  },
+  {
+    "id": "q07",
+    "text": "You stumble across an article about a topic totally unrelated to your work. What do you do?",
+    "type": "scenario",
+    "dimensions_measured": ["curiosity"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Read the whole thing and probably go down a rabbit hole.", "scores": {"curiosity": 90}},
+      {"id": "b", "text": "Skim it if the headline is interesting enough.", "scores": {"curiosity": 55}},
+      {"id": "c", "text": "Bookmark it for later, which usually means never.", "scores": {"curiosity": 35}},
+      {"id": "d", "text": "Scroll past, it has nothing to do with my goals.", "scores": {"curiosity": 10}}
+    ]
+  },
+  {
+    "id": "q08",
+    "text": "When someone explains a concept you already understand, do you ever ask 'but why does it actually work that way?'",
+    "type": "multiple_choice",
+    "dimensions_measured": ["curiosity", "learning"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Constantly, surface explanations rarely satisfy me.", "scores": {"curiosity": 90, "learning": 70}},
+      {"id": "b", "text": "Sometimes, if the topic really grabs me.", "scores": {"curiosity": 55, "learning": 55}},
+      {"id": "c", "text": "Rarely, I just want the practical takeaway.", "scores": {"curiosity": 25, "learning": 40}},
+      {"id": "d", "text": "Never, that level of detail feels unnecessary.", "scores": {"curiosity": 10, "learning": 20}}
+    ]
+  },
+  {
+    "id": "q09",
+    "text": "I often end up exploring topics with no immediate use to me, just because they're interesting.",
+    "type": "likert",
+    "dimensions_measured": ["curiosity"],
+    "reliability": 0.6,
+    "effort": 1,
+    "options": [
+      {"id": "1", "text": "Strongly disagree", "scores": {"curiosity": 10}},
+      {"id": "2", "text": "Disagree", "scores": {"curiosity": 30}},
+      {"id": "3", "text": "Neutral", "scores": {"curiosity": 50}},
+      {"id": "4", "text": "Agree", "scores": {"curiosity": 70}},
+      {"id": "5", "text": "Strongly agree", "scores": {"curiosity": 90}}
+    ]
+  },
+  {
+    "id": "q10",
+    "text": "You're asked to redesign a process that already works fine. What's your first move?",
+    "type": "scenario",
+    "dimensions_measured": ["creativity"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Throw out assumptions and sketch a few wildly different alternatives.", "scores": {"creativity": 90}},
+      {"id": "b", "text": "Look for a few targeted improvements to the current process.", "scores": {"creativity": 55}},
+      {"id": "c", "text": "Study how other teams or companies solved this.", "scores": {"creativity": 45}},
+      {"id": "d", "text": "Leave it alone unless there's a clear problem.", "scores": {"creativity": 15}}
+    ]
+  },
+  {
+    "id": "q11",
+    "text": "When brainstorming, what role do you naturally fall into?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["creativity"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "The one throwing out unusual, even impractical ideas.", "scores": {"creativity": 85}},
+      {"id": "b", "text": "The one building on other people's ideas.", "scores": {"creativity": 60}},
+      {"id": "c", "text": "The one narrowing the list down to what's realistic.", "scores": {"creativity": 35}},
+      {"id": "d", "text": "The one keeping the discussion on track.", "scores": {"creativity": 20}}
+    ]
+  },
+  {
+    "id": "q12",
+    "text": "Which matters more to you when starting something new?",
+    "type": "forced_choice",
+    "dimensions_measured": ["creativity", "execution"],
+    "reliability": 0.75,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Coming up with a genuinely original approach.", "scores": {"creativity": 85, "execution": 30}},
+      {"id": "b", "text": "Picking a proven approach and getting it done reliably.", "scores": {"creativity": 25, "execution": 85}}
+    ]
+  },
+  {
+    "id": "q13",
+    "text": "You have a to-do list with one big vague task and several small clear ones. What do you do?",
+    "type": "scenario",
+    "dimensions_measured": ["execution"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Knock out the small clear tasks first to build momentum.", "scores": {"execution": 75}},
+      {"id": "b", "text": "Break the big task into steps and start immediately.", "scores": {"execution": 90}},
+      {"id": "c", "text": "Think about the big task for a while before doing anything.", "scores": {"execution": 35}},
+      {"id": "d", "text": "Switch between tasks depending on my mood.", "scores": {"execution": 15}}
+    ]
+  },
+  {
+    "id": "q14",
+    "text": "How do you usually feel about deadlines?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["execution"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "I plan backward from them and rarely miss one.", "scores": {"execution": 90}},
+      {"id": "b", "text": "I work steadily and usually finish on time.", "scores": {"execution": 65}},
+      {"id": "c", "text": "I tend to do most of the work close to the deadline.", "scores": {"execution": 35}},
+      {"id": "d", "text": "Deadlines stress me out and I often need extensions.", "scores": {"execution": 15}}
+    ]
+  },
+  {
+    "id": "q15",
+    "text": "I finish what I start, even when the initial excitement fades.",
+    "type": "likert",
+    "dimensions_measured": ["execution"],
+    "reliability": 0.6,
+    "effort": 1,
+    "options": [
+      {"id": "1", "text": "Strongly disagree", "scores": {"execution": 10}},
+      {"id": "2", "text": "Disagree", "scores": {"execution": 30}},
+      {"id": "3", "text": "Neutral", "scores": {"execution": 50}},
+      {"id": "4", "text": "Agree", "scores": {"execution": 70}},
+      {"id": "5", "text": "Strongly agree", "scores": {"execution": 90}}
+    ]
+  },
+  {
+    "id": "q16",
+    "text": "Think of the last time you pushed through a genuinely boring task. What kept you going?",
+    "type": "scenario",
+    "dimensions_measured": ["motivation"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Knowing it mattered for a bigger goal I care about.", "scores": {"motivation": 85}},
+      {"id": "b", "text": "Not wanting to let someone else down.", "scores": {"motivation": 60}},
+      {"id": "c", "text": "The reward or recognition waiting at the end.", "scores": {"motivation": 50}},
+      {"id": "d", "text": "Honestly, I probably didn't finish it.", "scores": {"motivation": 15}}
+    ]
+  },
+  {
+    "id": "q17",
+    "text": "What's most likely to make you volunteer for extra work?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["motivation"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "It's genuinely interesting or meaningful to me.", "scores": {"motivation": 85}},
+      {"id": "b", "text": "It could help my growth or reputation.", "scores": {"motivation": 65}},
+      {"id": "c", "text": "Someone I respect asked me to.", "scores": {"motivation": 50}},
+      {"id": "d", "text": "I generally avoid taking on extra work.", "scores": {"motivation": 15}}
+    ]
+  },
+  {
+    "id": "q18",
+    "text": "Which would bother you more?",
+    "type": "forced_choice",
+    "dimensions_measured": ["motivation", "values_ambition"],
+    "reliability": 0.75,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Doing work that pays well but feels pointless.", "scores": {"motivation": 30, "values_ambition": 80}},
+      {"id": "b", "text": "Doing work that feels meaningful but pays poorly.", "scores": {"motivation": 80, "values_ambition": 35}}
+    ]
+  },
+  {
+    "id": "q19",
+    "text": "You're assigned to a project team you've never worked with before. What's your instinct on day one?",
+    "type": "scenario",
+    "dimensions_measured": ["work_preferences"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Introduce myself and start mapping out who does what.", "scores": {"work_preferences": 80}},
+      {"id": "b", "text": "Quietly observe how the team operates before jumping in.", "scores": {"work_preferences": 45}},
+      {"id": "c", "text": "Find the part I can own independently and get started.", "scores": {"work_preferences": 25}},
+      {"id": "d", "text": "Ask for a clear brief so I know exactly what's expected.", "scores": {"work_preferences": 55}}
+    ]
+  },
+  {
+    "id": "q20",
+    "text": "Which work setup sounds most appealing?",
+    "type": "multiple_choice",
+    "dimensions_measured": ["work_preferences"],
+    "reliability": 0.7,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "A tight-knit team collaborating in the same room.", "scores": {"work_preferences": 85}},
+      {"id": "b", "text": "A small team with a lot of async communication.", "scores": {"work_preferences": 60}},
+      {"id": "c", "text": "Mostly independent work with occasional check-ins.", "scores": {"work_preferences": 30}},
+      {"id": "d", "text": "Fully solo, minimal coordination needed.", "scores": {"work_preferences": 10}}
+    ]
+  },
+  {
+    "id": "q21",
+    "text": "Which do you find easier to deal with?",
+    "type": "forced_choice",
+    "dimensions_measured": ["work_preferences", "adaptability"],
+    "reliability": 0.75,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "A constantly changing team with shifting roles.", "scores": {"work_preferences": 70, "adaptability": 85}},
+      {"id": "b", "text": "A stable team with clearly defined, fixed roles.", "scores": {"work_preferences": 40, "adaptability": 30}}
+    ]
+  },
+  {
+    "id": "q22",
+    "text": "Ten years from now, what would make you feel like your career had gone well?",
+    "type": "scenario",
+    "dimensions_measured": ["values_ambition"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Having built or led something significant.", "scores": {"values_ambition": 90}},
+      {"id": "b", "text": "Being genuinely excellent at a craft I care about.", "scores": {"values_ambition": 70}},
+      {"id": "c", "text": "Having a stable, comfortable life with time for other things.", "scores": {"values_ambition": 45}},
+      {"id": "d", "text": "Honestly, I haven't thought that far ahead.", "scores": {"values_ambition": 20}}
+    ]
+  },
+  {
+    "id": "q23",
+    "text": "I regularly set ambitious long-term goals for myself.",
+    "type": "likert",
+    "dimensions_measured": ["values_ambition"],
+    "reliability": 0.6,
+    "effort": 1,
+    "options": [
+      {"id": "1", "text": "Strongly disagree", "scores": {"values_ambition": 10}},
+      {"id": "2", "text": "Disagree", "scores": {"values_ambition": 30}},
+      {"id": "3", "text": "Neutral", "scores": {"values_ambition": 50}},
+      {"id": "4", "text": "Agree", "scores": {"values_ambition": 70}},
+      {"id": "5", "text": "Strongly agree", "scores": {"values_ambition": 90}}
+    ]
+  },
+  {
+    "id": "q24",
+    "text": "Halfway through a project, the requirements change significantly. How do you react?",
+    "type": "scenario",
+    "dimensions_measured": ["adaptability"],
+    "reliability": 0.8,
+    "effort": 2,
+    "options": [
+      {"id": "a", "text": "Adjust the plan right away and keep moving.", "scores": {"adaptability": 90}},
+      {"id": "b", "text": "Take stock of what's salvageable before changing course.", "scores": {"adaptability": 65}},
+      {"id": "c", "text": "Feel frustrated but eventually adapt.", "scores": {"adaptability": 40}},
+      {"id": "d", "text": "Push back and try to keep the original plan.", "scores": {"adaptability": 15}}
+    ]
+  },
+  {
+    "id": "q25",
+    "text": "Which best describes how you handle being wrong about something you were confident in?",
+    "type": "forced_choice",
+    "dimensions_measured": ["adaptability", "reasoning"],
+    "reliability": 0.75,
+    "effort": 1,
+    "options": [
+      {"id": "a", "text": "Update my view quickly once I see the evidence.", "scores": {"adaptability": 85, "reasoning": 80}},
+      {"id": "b", "text": "Need time to work through it before changing my mind.", "scores": {"adaptability": 40, "reasoning": 55}}
+    ]
+  }
+]

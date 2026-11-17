@@ -1,0 +1,513 @@
+[
+  {
+    "id": "q001",
+    "text": "You receive an unfamiliar problem with incomplete information. What do you do first?",
+    "type": "scenario",
+    "contexts": ["problem_solving"],
+    "facets_targeted": ["information_gathering", "hypothesis_building"],
+    "reliability": 0.75,
+    "effort": 1,
+    "discriminates_between": ["information_gathering", "learning_by_doing"],
+    "options": [
+      {"id": "a", "text": "Gather more data before forming any opinion.", "evidence": [
+        {"facet": "information_gathering", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Form a quick working hypothesis and test it as you go.", "evidence": [
+        {"facet": "hypothesis_building", "direction": "supports", "strength": 0.8},
+        {"facet": "information_gathering", "direction": "contradicts", "strength": 0.4}
+      ]},
+      {"id": "c", "text": "Break it into smaller sub-problems first.", "evidence": [
+        {"facet": "problem_decomposition", "direction": "supports", "strength": 0.85}
+      ]}
+    ]
+  },
+  {
+    "id": "q002",
+    "text": "You're learning a completely new skill. Which sounds more like you?",
+    "type": "forced_choice",
+    "contexts": ["learning"],
+    "facets_targeted": ["theory_before_experimentation", "learning_by_doing"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["theory_before_experimentation", "learning_by_doing"],
+    "options": [
+      {"id": "a", "text": "I read the manual or theory first.", "evidence": [
+        {"facet": "theory_before_experimentation", "direction": "supports", "strength": 0.85},
+        {"facet": "learning_by_doing", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "I jump in and figure it out by trying things.", "evidence": [
+        {"facet": "learning_by_doing", "direction": "supports", "strength": 0.85},
+        {"facet": "theory_before_experimentation", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q003",
+    "text": "A project you're working on hits an unexpected dead end. What's your instinct?",
+    "type": "scenario",
+    "contexts": ["work"],
+    "facets_targeted": ["setback_recovery", "persistence_with_difficulty"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["setback_recovery", "response_to_change"],
+    "options": [
+      {"id": "a", "text": "Push through the same approach with more effort.", "evidence": [
+        {"facet": "persistence_with_difficulty", "direction": "supports", "strength": 0.7}
+      ]},
+      {"id": "b", "text": "Step back and look for a completely different angle.", "evidence": [
+        {"facet": "setback_recovery", "direction": "supports", "strength": 0.75},
+        {"facet": "problem_reframing", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "Feel discouraged and consider dropping it.", "evidence": [
+        {"facet": "setback_recovery", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q004",
+    "text": "Someone gives you critical feedback on work you were proud of. What happens next?",
+    "type": "scenario",
+    "contexts": ["work", "learning"],
+    "facets_targeted": ["feedback_orientation", "belief_updating"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["feedback_orientation", "belief_updating"],
+    "options": [
+      {"id": "a", "text": "I dig into the feedback and revise my approach.", "evidence": [
+        {"facet": "feedback_orientation", "direction": "supports", "strength": 0.85},
+        {"facet": "belief_updating", "direction": "supports", "strength": 0.7}
+      ]},
+      {"id": "b", "text": "I consider it but mostly stick with my original approach.", "evidence": [
+        {"facet": "belief_updating", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "I feel defensive at first, then come around later.", "evidence": [
+        {"facet": "feedback_orientation", "direction": "supports", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q005",
+    "text": "Free weekend, no obligations. What's most appealing?",
+    "type": "forced_choice",
+    "contexts": ["personal"],
+    "facets_targeted": ["breadth_of_exploration", "depth_of_investigation"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["breadth_of_exploration", "depth_of_investigation"],
+    "options": [
+      {"id": "a", "text": "Sampling several new things I've never tried.", "evidence": [
+        {"facet": "breadth_of_exploration", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Going deep on one topic or hobby I already love.", "evidence": [
+        {"facet": "depth_of_investigation", "direction": "supports", "strength": 0.8},
+        {"facet": "breadth_of_exploration", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q006",
+    "text": "You notice something odd or unexplained in everyday life. What's your typical reaction?",
+    "type": "scenario",
+    "contexts": ["personal"],
+    "facets_targeted": ["question_generation", "intrinsic_exploration"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["question_generation", "intrinsic_exploration"],
+    "options": [
+      {"id": "a", "text": "I immediately want to know why, and start asking around or searching.", "evidence": [
+        {"facet": "question_generation", "direction": "supports", "strength": 0.8},
+        {"facet": "intrinsic_exploration", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "b", "text": "I notice it, but don't really follow up.", "evidence": [
+        {"facet": "intrinsic_exploration", "direction": "contradicts", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q007",
+    "text": "You need to come up with ideas for solving a stuck problem. How do you approach it?",
+    "type": "scenario",
+    "contexts": ["problem_solving", "work"],
+    "facets_targeted": ["idea_generation", "flexibility"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["idea_generation", "originality"],
+    "options": [
+      {"id": "a", "text": "Brainstorm as many options as possible, even weird ones.", "evidence": [
+        {"facet": "idea_generation", "direction": "supports", "strength": 0.85},
+        {"facet": "flexibility", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "Look for how similar problems were solved before and adapt that.", "evidence": [
+        {"facet": "idea_generation", "direction": "contradicts", "strength": 0.4},
+        {"facet": "practical_creativity", "direction": "supports", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q008",
+    "text": "A constraint (budget, time, rules) blocks your original plan. What do you do?",
+    "type": "scenario",
+    "contexts": ["work", "problem_solving"],
+    "facets_targeted": ["problem_reframing", "practical_creativity"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["problem_reframing", "resourcefulness"],
+    "options": [
+      {"id": "a", "text": "Redefine the problem so the constraint doesn't matter as much.", "evidence": [
+        {"facet": "problem_reframing", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Find a workaround with what's available.", "evidence": [
+        {"facet": "practical_creativity", "direction": "supports", "strength": 0.75},
+        {"facet": "resourcefulness", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "Wait until the constraint is lifted or ask for an exception.", "evidence": [
+        {"facet": "resourcefulness", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q009",
+    "text": "How do you usually start a new personal project?",
+    "type": "scenario",
+    "contexts": ["personal", "work"],
+    "facets_targeted": ["initiation", "planning"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["initiation", "planning"],
+    "options": [
+      {"id": "a", "text": "Just start doing something, figure out the plan along the way.", "evidence": [
+        {"facet": "initiation", "direction": "supports", "strength": 0.8},
+        {"facet": "planning", "direction": "contradicts", "strength": 0.4}
+      ]},
+      {"id": "b", "text": "Map out steps and a rough plan before starting.", "evidence": [
+        {"facet": "planning", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "I tend to think about starting but often don't.", "evidence": [
+        {"facet": "initiation", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q010",
+    "text": "Midway through a long project, motivation dips. What usually happens?",
+    "type": "scenario",
+    "contexts": ["work", "personal"],
+    "facets_targeted": ["follow_through", "persistence_with_difficulty"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["follow_through", "setback_recovery"],
+    "options": [
+      {"id": "a", "text": "I push through and finish what I started.", "evidence": [
+        {"facet": "follow_through", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "I often set it aside and move to something newer.", "evidence": [
+        {"facet": "follow_through", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q011",
+    "text": "You finish a piece of work. Before calling it done, what do you do?",
+    "type": "scenario",
+    "contexts": ["work", "academic"],
+    "facets_targeted": ["quality_standards", "iteration"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["quality_standards", "iteration"],
+    "options": [
+      {"id": "a", "text": "Review and refine it multiple times until it feels right.", "evidence": [
+        {"facet": "quality_standards", "direction": "supports", "strength": 0.8},
+        {"facet": "iteration", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "b", "text": "Ship it once it meets the basic requirement.", "evidence": [
+        {"facet": "quality_standards", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q012",
+    "text": "What would make a job feel genuinely satisfying to you, day to day?",
+    "type": "ranking",
+    "contexts": ["work"],
+    "facets_targeted": ["mastery_orientation", "autonomy_orientation", "impact_orientation"],
+    "reliability": 0.55,
+    "effort": 2,
+    "discriminates_between": ["mastery_orientation", "impact_orientation"],
+    "options": [
+      {"id": "a", "text": "Getting steadily better at something hard.", "evidence": [
+        {"facet": "mastery_orientation", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Deciding how and when I work.", "evidence": [
+        {"facet": "autonomy_orientation", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "Seeing a clear positive effect on other people.", "evidence": [
+        {"facet": "impact_orientation", "direction": "supports", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q013",
+    "text": "Two job offers: one pays notably more but is less interesting; one pays less but you'd learn a lot. Which pulls at you more?",
+    "type": "forced_choice",
+    "contexts": ["financial", "work", "hypothetical"],
+    "facets_targeted": ["financial_motivation", "intellectual_challenge"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["financial_motivation", "mastery_orientation"],
+    "options": [
+      {"id": "a", "text": "The higher-paying one.", "evidence": [
+        {"facet": "financial_motivation", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "b", "text": "The one where I'd learn more.", "evidence": [
+        {"facet": "intellectual_challenge", "direction": "supports", "strength": 0.75},
+        {"facet": "financial_motivation", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q014",
+    "text": "When something you built or contributed to succeeds, what matters most to you about it?",
+    "type": "forced_choice",
+    "contexts": ["work"],
+    "facets_targeted": ["recognition_orientation", "meaning_orientation"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["recognition_orientation", "meaning_orientation"],
+    "options": [
+      {"id": "a", "text": "That people recognize my contribution.", "evidence": [
+        {"facet": "recognition_orientation", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "b", "text": "That it genuinely mattered, regardless of who notices.", "evidence": [
+        {"facet": "meaning_orientation", "direction": "supports", "strength": 0.75},
+        {"facet": "recognition_orientation", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q015",
+    "text": "How do you feel about competitive settings (rankings, contests, leaderboards)?",
+    "type": "likert",
+    "contexts": ["work", "personal"],
+    "facets_targeted": ["competition_orientation", "security_orientation"],
+    "reliability": 0.5,
+    "effort": 1,
+    "discriminates_between": ["competition_orientation"],
+    "options": [
+      {"id": "a", "text": "I actively enjoy them and perform better under them.", "evidence": [
+        {"facet": "competition_orientation", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Neutral - I can take them or leave them.", "evidence": [
+        {"facet": "competition_orientation", "direction": "neutral", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "I actively dislike them and prefer stable, predictable settings.", "evidence": [
+        {"facet": "competition_orientation", "direction": "contradicts", "strength": 0.8},
+        {"facet": "security_orientation", "direction": "supports", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q016",
+    "text": "You're assigned a group project. What role do you naturally gravitate to?",
+    "type": "scenario",
+    "contexts": ["work", "academic", "social"],
+    "facets_targeted": ["collaboration_preference", "social_intensity_preference"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["collaboration_preference", "autonomy_preference"],
+    "options": [
+      {"id": "a", "text": "Coordinating closely with the group throughout.", "evidence": [
+        {"facet": "collaboration_preference", "direction": "supports", "strength": 0.8},
+        {"facet": "social_intensity_preference", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "Taking a clear chunk and working on it mostly alone.", "evidence": [
+        {"facet": "autonomy_preference", "direction": "supports", "strength": 0.75},
+        {"facet": "collaboration_preference", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q017",
+    "text": "Which working environment sounds better to you?",
+    "type": "forced_choice",
+    "contexts": ["work", "hypothetical"],
+    "facets_targeted": ["structure_preference", "ambiguity_tolerance"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["structure_preference", "ambiguity_tolerance"],
+    "options": [
+      {"id": "a", "text": "Clear processes, defined roles, and expectations.", "evidence": [
+        {"facet": "structure_preference", "direction": "supports", "strength": 0.8},
+        {"facet": "ambiguity_tolerance", "direction": "contradicts", "strength": 0.4}
+      ]},
+      {"id": "b", "text": "Loose structure where I figure out what needs doing.", "evidence": [
+        {"facet": "ambiguity_tolerance", "direction": "supports", "strength": 0.8},
+        {"facet": "structure_preference", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q018",
+    "text": "How do you feel about doing the same type of task repeatedly for long stretches?",
+    "type": "likert",
+    "contexts": ["work"],
+    "facets_targeted": ["variety_preference", "pace_preference"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["variety_preference"],
+    "options": [
+      {"id": "a", "text": "It gets tedious fast - I want variety.", "evidence": [
+        {"facet": "variety_preference", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "I don't mind it, especially if I'm improving at it.", "evidence": [
+        {"facet": "variety_preference", "direction": "contradicts", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q019",
+    "text": "Imagine your ideal ordinary week, five years from now. What's true about it?",
+    "type": "reflection",
+    "contexts": ["personal", "hypothetical"],
+    "facets_targeted": ["desired_lifestyle", "long_term_ambition"],
+    "reliability": 0.5,
+    "effort": 2,
+    "discriminates_between": ["desired_lifestyle", "achievement_orientation"],
+    "options": [
+      {"id": "a", "text": "Calm, predictable, plenty of time outside work.", "evidence": [
+        {"facet": "desired_lifestyle", "direction": "supports", "strength": 0.7},
+        {"facet": "long_term_ambition", "direction": "contradicts", "strength": 0.3}
+      ]},
+      {"id": "b", "text": "Busy and demanding, but building toward something big.", "evidence": [
+        {"facet": "long_term_ambition", "direction": "supports", "strength": 0.75},
+        {"facet": "achievement_orientation", "direction": "supports", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q020",
+    "text": "If your income were guaranteed either way, would your career choice change?",
+    "type": "forced_choice",
+    "contexts": ["financial", "hypothetical"],
+    "facets_targeted": ["financial_goal", "meaning_orientation"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["financial_goal", "stability_value"],
+    "options": [
+      {"id": "a", "text": "Yes - I'd pick something very different.", "evidence": [
+        {"facet": "financial_goal", "direction": "contradicts", "strength": 0.3},
+        {"facet": "meaning_orientation", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "No - I'd basically do the same thing.", "evidence": [
+        {"facet": "meaning_orientation", "direction": "supports", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q021",
+    "text": "How important is having a recognized title, rank, or status in your work?",
+    "type": "likert",
+    "contexts": ["work", "social"],
+    "facets_targeted": ["status_value", "freedom_value"],
+    "reliability": 0.5,
+    "effort": 1,
+    "discriminates_between": ["status_value"],
+    "options": [
+      {"id": "a", "text": "Quite important to me.", "evidence": [
+        {"facet": "status_value", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "b", "text": "Not important - I'd rather have freedom over my time.", "evidence": [
+        {"facet": "status_value", "direction": "contradicts", "strength": 0.6},
+        {"facet": "freedom_value", "direction": "supports", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q022",
+    "text": "A stable, predictable path and a riskier, higher-ceiling path are both open to you. Which are you drawn to right now?",
+    "type": "forced_choice",
+    "contexts": ["financial", "hypothetical", "work"],
+    "facets_targeted": ["stability_value", "uncertainty_tolerance"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["stability_value", "uncertainty_tolerance"],
+    "options": [
+      {"id": "a", "text": "The stable, predictable path.", "evidence": [
+        {"facet": "stability_value", "direction": "supports", "strength": 0.8},
+        {"facet": "uncertainty_tolerance", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "The riskier, higher-ceiling path.", "evidence": [
+        {"facet": "uncertainty_tolerance", "direction": "supports", "strength": 0.8},
+        {"facet": "stability_value", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q023",
+    "text": "Plans change on you at the last minute (a trip, a project scope, a schedule). What's your typical reaction?",
+    "type": "scenario",
+    "contexts": ["work", "personal"],
+    "facets_targeted": ["response_to_change", "willingness_to_revise"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["response_to_change", "setback_recovery"],
+    "options": [
+      {"id": "a", "text": "I adjust quickly and move on.", "evidence": [
+        {"facet": "response_to_change", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "It throws me off for a while before I adapt.", "evidence": [
+        {"facet": "response_to_change", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "I resist it and try to keep the original plan if I can.", "evidence": [
+        {"facet": "response_to_change", "direction": "contradicts", "strength": 0.75},
+        {"facet": "willingness_to_revise", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q024",
+    "text": "New information directly contradicts a plan you already committed to. What do you do?",
+    "type": "scenario",
+    "contexts": ["work", "problem_solving"],
+    "facets_targeted": ["willingness_to_revise", "belief_updating"],
+    "reliability": 0.7,
+    "effort": 1,
+    "discriminates_between": ["willingness_to_revise", "belief_updating"],
+    "options": [
+      {"id": "a", "text": "Revise the plan even though it's costly to change course.", "evidence": [
+        {"facet": "willingness_to_revise", "direction": "supports", "strength": 0.85},
+        {"facet": "belief_updating", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "b", "text": "Look for reasons the new information might be wrong first.", "evidence": [
+        {"facet": "belief_updating", "direction": "contradicts", "strength": 0.5},
+        {"facet": "evidence_evaluation", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Stick with the original plan - too much is already invested.", "evidence": [
+        {"facet": "willingness_to_revise", "direction": "contradicts", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q025",
+    "text": "You're dropped into a domain you know nothing about and need to contribute quickly. What's your approach?",
+    "type": "mini_task",
+    "contexts": ["work", "learning", "problem_solving"],
+    "facets_targeted": ["transfer_to_unfamiliar_contexts", "self_directed_learning"],
+    "reliability": 0.7,
+    "effort": 2,
+    "discriminates_between": ["transfer_to_unfamiliar_contexts", "self_directed_learning"],
+    "options": [
+      {"id": "a", "text": "Look for patterns from domains I already know and adapt them.", "evidence": [
+        {"facet": "transfer_to_unfamiliar_contexts", "direction": "supports", "strength": 0.85},
+        {"facet": "pattern_recognition", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "Teach myself the fundamentals of the new domain from scratch first.", "evidence": [
+        {"facet": "self_directed_learning", "direction": "supports", "strength": 0.85},
+        {"facet": "theory_before_experimentation", "direction": "supports", "strength": 0.4}
+      ]},
+      {"id": "c", "text": "Rely heavily on asking others who already know the domain.", "evidence": [
+        {"facet": "self_directed_learning", "direction": "contradicts", "strength": 0.5},
+        {"facet": "collaboration_preference", "direction": "supports", "strength": 0.4}
+      ]}
+    ]
+  }
+]

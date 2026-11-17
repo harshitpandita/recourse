@@ -1,0 +1,650 @@
+[
+  {
+    "id": "q001",
+    "text": "If you had a free afternoon to explore something new, which pulls you in most?",
+    "type": "forced_choice",
+    "contexts": ["personal"],
+    "attributes_targeted": ["technology", "science", "design", "nature"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["technology", "nature"],
+    "options": [
+      {"id": "a", "text": "Tinkering with a gadget, app, or piece of tech to see how it works.", "evidence": [
+        {"attribute": "technology", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Reading about a scientific discovery or watching a documentary on how the universe works.", "evidence": [
+        {"attribute": "science", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "Sketching, designing, or making something visually creative.", "evidence": [
+        {"attribute": "design", "direction": "supports", "strength": 0.7},
+        {"attribute": "creative_expression", "direction": "supports", "strength": 0.6}
+      ]},
+      {"id": "d", "text": "Going for a walk outdoors, noticing plants, animals, or weather.", "evidence": [
+        {"attribute": "nature", "direction": "supports", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q002",
+    "text": "A friend asks for advice about a problem they're having with their group project. What do you naturally do?",
+    "type": "scenario",
+    "contexts": ["social"],
+    "attributes_targeted": ["people", "information", "business"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["people", "information"],
+    "options": [
+      {"id": "a", "text": "Listen closely and help them think through the group dynamics.", "evidence": [
+        {"attribute": "people", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Ask for the details of exactly what happened so you understand the situation precisely.", "evidence": [
+        {"attribute": "information", "direction": "supports", "strength": 0.7}
+      ]},
+      {"id": "c", "text": "Think about how to reorganize the group to run more efficiently.", "evidence": [
+        {"attribute": "business", "direction": "supports", "strength": 0.6}
+      ]}
+    ]
+  },
+  {
+    "id": "q003",
+    "text": "Pick the task you'd rather spend a free Saturday on.",
+    "type": "mini_task",
+    "contexts": ["personal"],
+    "attributes_targeted": ["practical_making", "creative_expression"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["practical_making", "creative_expression"],
+    "options": [
+      {"id": "a", "text": "Building or fixing something physical (furniture, a bike, a small circuit).", "evidence": [
+        {"attribute": "practical_making", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Writing a story, composing music, or making art for its own sake.", "evidence": [
+        {"attribute": "creative_expression", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "c", "text": "Neither really appeals to me.", "evidence": [
+        {"attribute": "practical_making", "direction": "contradicts", "strength": 0.3},
+        {"attribute": "creative_expression", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q004",
+    "text": "Which puzzle would you rather spend twenty minutes on?",
+    "type": "forced_choice",
+    "contexts": ["hypothetical"],
+    "attributes_targeted": ["mathematics", "business"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["mathematics", "business"],
+    "options": [
+      {"id": "a", "text": "A logic or number puzzle with one correct, elegant solution.", "evidence": [
+        {"attribute": "mathematics", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "A case study about why a small shop's sales are dropping.", "evidence": [
+        {"attribute": "business", "direction": "supports", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q005",
+    "text": "In a group project at school or college, which role do you gravitate toward?",
+    "type": "scenario",
+    "contexts": ["academic"],
+    "attributes_targeted": ["information", "technology", "design"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["information", "technology"],
+    "options": [
+      {"id": "a", "text": "The one who researches and organizes the information / structures the report.", "evidence": [
+        {"attribute": "information", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "b", "text": "The one who builds or codes the actual thing.", "evidence": [
+        {"attribute": "technology", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "The one who designs how it looks or is presented.", "evidence": [
+        {"attribute": "design", "direction": "supports", "strength": 0.75}
+      ]}
+    ]
+  },
+  {
+    "id": "q006",
+    "text": "A recipe serves 4 and needs 250g of rice. You need to serve 11 people. How do you figure out how much rice to use?",
+    "type": "mini_task",
+    "contexts": ["problem_solving"],
+    "attributes_targeted": ["quantitative_reasoning"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["quantitative_reasoning", "analytical_problem_solving"],
+    "options": [
+      {"id": "a", "text": "Set up a ratio and calculate it precisely (250/4 x 11).", "evidence": [
+        {"attribute": "quantitative_reasoning", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Estimate roughly - 'a bit less than triple' and round generously.", "evidence": [
+        {"attribute": "quantitative_reasoning", "direction": "supports", "strength": 0.4}
+      ]},
+      {"id": "c", "text": "I'd look it up or ask someone rather than calculate it myself.", "evidence": [
+        {"attribute": "quantitative_reasoning", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q007",
+    "text": "Which of these is the odd one out, and why: lecture, tutorial, mentorship, textbook?",
+    "type": "mini_task",
+    "contexts": ["problem_solving"],
+    "attributes_targeted": ["verbal_reasoning"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["verbal_reasoning", "pattern_recognition"],
+    "options": [
+      {"id": "a", "text": "'Textbook' - the others involve a live person guiding you, this one doesn't.", "evidence": [
+        {"attribute": "verbal_reasoning", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "b", "text": "'Mentorship' - it's more personal and long-term than the others.", "evidence": [
+        {"attribute": "verbal_reasoning", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Not sure - I'd need more time to think about it than this allows.", "evidence": [
+        {"attribute": "verbal_reasoning", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q008",
+    "text": "Picture folding a flat square piece of paper in half twice, then cutting a small triangle off one folded corner. When unfolded, how many holes will there be? How did you get your answer?",
+    "type": "mini_task",
+    "contexts": ["problem_solving"],
+    "attributes_targeted": ["spatial_reasoning"],
+    "reliability": 0.6,
+    "effort": 2,
+    "discriminates_between": ["spatial_reasoning", "pattern_recognition"],
+    "options": [
+      {"id": "a", "text": "I mentally pictured the folds and unfolds and counted the holes.", "evidence": [
+        {"attribute": "spatial_reasoning", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "I guessed a plausible-sounding number.", "evidence": [
+        {"attribute": "spatial_reasoning", "direction": "contradicts", "strength": 0.4}
+      ]},
+      {"id": "c", "text": "I'd need to actually fold paper to know for sure.", "evidence": [
+        {"attribute": "spatial_reasoning", "direction": "neutral", "strength": 0.2}
+      ]}
+    ]
+  },
+  {
+    "id": "q009",
+    "text": "Your team's weekly meeting keeps running over time and nothing gets decided. What's your first move?",
+    "type": "scenario",
+    "contexts": ["work"],
+    "attributes_targeted": ["analytical_problem_solving", "creative_thinking"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["analytical_problem_solving", "creative_thinking"],
+    "options": [
+      {"id": "a", "text": "List out exactly why it's happening, step by step, before proposing a fix.", "evidence": [
+        {"attribute": "analytical_problem_solving", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Suggest a completely different format for the meeting altogether.", "evidence": [
+        {"attribute": "creative_thinking", "direction": "supports", "strength": 0.75}
+      ]},
+      {"id": "c", "text": "Let it keep happening; it's not really my problem to fix.", "evidence": [
+        {"attribute": "analytical_problem_solving", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q010",
+    "text": "Sequence: 2, 6, 12, 20, 30, ... What's the next number, and how did you find it?",
+    "type": "mini_task",
+    "contexts": ["problem_solving"],
+    "attributes_targeted": ["pattern_recognition"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["pattern_recognition", "quantitative_reasoning"],
+    "options": [
+      {"id": "a", "text": "Noticed the gaps increase by 2 each time (4,6,8,10) and continued the pattern to get 42.", "evidence": [
+        {"attribute": "pattern_recognition", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Recognized it as n(n+1) and computed the next value directly.", "evidence": [
+        {"attribute": "pattern_recognition", "direction": "supports", "strength": 0.8},
+        {"attribute": "quantitative_reasoning", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Guessed a number that seemed reasonable.", "evidence": [
+        {"attribute": "pattern_recognition", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q011",
+    "text": "Which work setup sounds better to you?",
+    "type": "forced_choice",
+    "contexts": ["work"],
+    "attributes_targeted": ["autonomy_preference", "structure_preference"],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": ["autonomy_preference", "structure_preference"],
+    "options": [
+      {"id": "a", "text": "I get a goal and figure out my own way to reach it.", "evidence": [
+        {"attribute": "autonomy_preference", "direction": "supports", "strength": 0.85},
+        {"attribute": "structure_preference", "direction": "contradicts", "strength": 0.4}
+      ]},
+      {"id": "b", "text": "I get a clear, step-by-step process to follow.", "evidence": [
+        {"attribute": "structure_preference", "direction": "supports", "strength": 0.85},
+        {"attribute": "autonomy_preference", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q012",
+    "text": "You're assigned a big task. Which do you prefer?",
+    "type": "forced_choice",
+    "contexts": ["work"],
+    "attributes_targeted": ["collaboration_preference", "social_interaction_preference"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["collaboration_preference"],
+    "options": [
+      {"id": "a", "text": "Working with a small team, bouncing ideas back and forth throughout.", "evidence": [
+        {"attribute": "collaboration_preference", "direction": "supports", "strength": 0.8},
+        {"attribute": "social_interaction_preference", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "Owning it myself and checking in only at milestones.", "evidence": [
+        {"attribute": "collaboration_preference", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Working alongside others but mostly on my own sub-part.", "evidence": [
+        {"attribute": "collaboration_preference", "direction": "supports", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q013",
+    "text": "Your manager or teacher gives you a task with almost no instructions and says 'figure out what's needed.' How do you feel?",
+    "type": "scenario",
+    "contexts": ["work"],
+    "attributes_targeted": ["ambiguity_tolerance"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["ambiguity_tolerance", "structure_preference"],
+    "options": [
+      {"id": "a", "text": "Energized - I like defining the problem myself.", "evidence": [
+        {"attribute": "ambiguity_tolerance", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Uncomfortable - I'd rather ask a lot of clarifying questions first.", "evidence": [
+        {"attribute": "ambiguity_tolerance", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "Anxious, but I'd push through anyway.", "evidence": [
+        {"attribute": "ambiguity_tolerance", "direction": "supports", "strength": 0.3},
+        {"attribute": "concern", "direction": "supports", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q014",
+    "text": "Which week would you enjoy more?",
+    "type": "forced_choice",
+    "contexts": ["work"],
+    "attributes_targeted": ["pace_preference", "variety_preference"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["pace_preference", "variety_preference"],
+    "options": [
+      {"id": "a", "text": "Deep, focused work on one thing for the whole week.", "evidence": [
+        {"attribute": "variety_preference", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "b", "text": "Several different tasks or projects, switching between them daily.", "evidence": [
+        {"attribute": "variety_preference", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "c", "text": "A fast-moving week with tight deadlines and constant momentum.", "evidence": [
+        {"attribute": "pace_preference", "direction": "supports", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q015",
+    "text": "Picture your ideal workday. Which is closer?",
+    "type": "scenario",
+    "contexts": ["work"],
+    "attributes_targeted": ["structure_preference", "social_interaction_preference"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["structure_preference", "social_interaction_preference"],
+    "options": [
+      {"id": "a", "text": "A clear schedule, regular check-ins, defined responsibilities.", "evidence": [
+        {"attribute": "structure_preference", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Long stretches of unstructured time with lots of interaction with others throughout.", "evidence": [
+        {"attribute": "structure_preference", "direction": "contradicts", "strength": 0.5},
+        {"attribute": "social_interaction_preference", "direction": "supports", "strength": 0.7}
+      ]},
+      {"id": "c", "text": "Long stretches of quiet, independent focus time.", "evidence": [
+        {"attribute": "social_interaction_preference", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q016",
+    "text": "Imagine two job offers, otherwise similar. Which would you choose?",
+    "type": "forced_choice",
+    "contexts": ["hypothetical", "financial"],
+    "attributes_targeted": ["financial_reward", "security", "intellectual_challenge"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["financial_reward", "security"],
+    "options": [
+      {"id": "a", "text": "Higher pay and more financially rewarding, but less job security.", "evidence": [
+        {"attribute": "financial_reward", "direction": "supports", "strength": 0.85},
+        {"attribute": "security", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "Lower pay but very stable and secure.", "evidence": [
+        {"attribute": "security", "direction": "supports", "strength": 0.85},
+        {"attribute": "financial_reward", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Lower pay but constantly intellectually challenging and stimulating.", "evidence": [
+        {"attribute": "intellectual_challenge", "direction": "supports", "strength": 0.85},
+        {"attribute": "financial_reward", "direction": "contradicts", "strength": 0.3}
+      ]}
+    ]
+  },
+  {
+    "id": "q017",
+    "text": "What would make you feel most proud of a piece of work?",
+    "type": "forced_choice",
+    "contexts": ["personal"],
+    "attributes_targeted": ["achievement", "status", "impact"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["achievement", "status"],
+    "options": [
+      {"id": "a", "text": "Knowing I achieved something genuinely difficult, regardless of who notices.", "evidence": [
+        {"attribute": "achievement", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Being recognized publicly and respected for it.", "evidence": [
+        {"attribute": "status", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "c", "text": "Knowing it actually helped or changed something for other people.", "evidence": [
+        {"attribute": "impact", "direction": "supports", "strength": 0.85}
+      ]}
+    ]
+  },
+  {
+    "id": "q018",
+    "text": "Which future bothers you least?",
+    "type": "forced_choice",
+    "contexts": ["hypothetical"],
+    "attributes_targeted": ["autonomy", "freedom", "lifestyle"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["freedom", "lifestyle"],
+    "options": [
+      {"id": "a", "text": "A demanding career that leaves little personal time, but I control my own decisions at work.", "evidence": [
+        {"attribute": "autonomy", "direction": "supports", "strength": 0.7},
+        {"attribute": "lifestyle", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "b", "text": "A flexible, low-stress career that leaves plenty of time for personal life.", "evidence": [
+        {"attribute": "lifestyle", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "c", "text": "A career where I can live and work from anywhere, on my own terms.", "evidence": [
+        {"attribute": "freedom", "direction": "supports", "strength": 0.85}
+      ]}
+    ]
+  },
+  {
+    "id": "q019",
+    "text": "Rank what matters most to you in a future job: being well paid, feeling secure, or doing meaningful/impactful work. Which comes first?",
+    "type": "ranking",
+    "contexts": ["financial"],
+    "attributes_targeted": ["financial_reward", "security", "impact"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["financial_reward", "impact"],
+    "options": [
+      {"id": "a", "text": "Being well paid comes first for me.", "evidence": [
+        {"attribute": "financial_reward", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Feeling secure comes first for me.", "evidence": [
+        {"attribute": "security", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "Doing meaningful, impactful work comes first for me.", "evidence": [
+        {"attribute": "impact", "direction": "supports", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q020",
+    "text": "If someone asked you right now, 'what career are you thinking about?', how would you answer?",
+    "type": "reflection",
+    "contexts": ["personal"],
+    "attributes_targeted": ["career_direction_clarity"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["career_direction_clarity"],
+    "options": [
+      {"id": "a", "text": "I have a specific field or role in mind and could name it.", "goal_field": "career_direction", "evidence": [
+        {"attribute": "career_direction_clarity", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "I have a general area in mind but nothing specific.", "goal_field": "career_direction", "evidence": [
+        {"attribute": "career_direction_clarity", "direction": "supports", "strength": 0.4}
+      ]},
+      {"id": "c", "text": "I honestly have no idea yet.", "evidence": [
+        {"attribute": "career_direction_clarity", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q021",
+    "text": "How clear are you on what or where you want to study next (if applicable)?",
+    "type": "reflection",
+    "contexts": ["academic"],
+    "attributes_targeted": ["education_direction_clarity"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["education_direction_clarity", "career_direction_clarity"],
+    "options": [
+      {"id": "a", "text": "Very clear - I know the specific course or institution direction I want.", "goal_field": "education_direction", "evidence": [
+        {"attribute": "education_direction_clarity", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Somewhat - I know the broad field but not specifics.", "goal_field": "education_direction", "evidence": [
+        {"attribute": "education_direction_clarity", "direction": "supports", "strength": 0.45}
+      ]},
+      {"id": "c", "text": "Not clear at all.", "evidence": [
+        {"attribute": "education_direction_clarity", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q022",
+    "text": "When you think about your future, where does your mind go first?",
+    "type": "reflection",
+    "contexts": ["personal"],
+    "attributes_targeted": ["short_term_goal_orientation", "long_term_goal_orientation"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["short_term_goal_orientation", "long_term_goal_orientation"],
+    "options": [
+      {"id": "a", "text": "What I need to do in the next few months - exams, applications, immediate next steps.", "evidence": [
+        {"attribute": "short_term_goal_orientation", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Where I want to be in 10-15 years, working backward from there.", "evidence": [
+        {"attribute": "long_term_goal_orientation", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "c", "text": "Honestly, I try not to think about it too much.", "evidence": [
+        {"attribute": "short_term_goal_orientation", "direction": "contradicts", "strength": 0.4},
+        {"attribute": "long_term_goal_orientation", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q023",
+    "text": "How would you describe your ambitions for the next stage of life?",
+    "type": "self_report",
+    "contexts": ["personal"],
+    "attributes_targeted": ["ambition_level", "curiosity"],
+    "reliability": 0.5,
+    "effort": 1,
+    "discriminates_between": ["ambition_level"],
+    "options": [
+      {"id": "a", "text": "I want to aim as high as possible, even if it's difficult.", "goal_field": "ambitions", "evidence": [
+        {"attribute": "ambition_level", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "I want something solid and comfortable, not necessarily the most impressive.", "goal_field": "ambitions", "evidence": [
+        {"attribute": "ambition_level", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "I want to try many different things and see what fits before committing.", "goal_field": "ambitions", "evidence": [
+        {"attribute": "curiosity", "direction": "supports", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q024",
+    "text": "When you think about your career or education path years from now, what's your typical reaction?",
+    "type": "scenario",
+    "contexts": ["personal"],
+    "attributes_targeted": ["concern"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["concern", "long_term_goal_orientation"],
+    "options": [
+      {"id": "a", "text": "I actively think ahead and plan for what's coming.", "evidence": [
+        {"attribute": "concern", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "I mostly deal with things as they come, without planning far ahead.", "evidence": [
+        {"attribute": "concern", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "I worry about it a lot but don't really plan.", "evidence": [
+        {"attribute": "concern", "direction": "supports", "strength": 0.3},
+        {"attribute": "confidence", "direction": "contradicts", "strength": 0.4}
+      ]}
+    ]
+  },
+  {
+    "id": "q025",
+    "text": "A decision about your subject choice or career direction is coming up. Who is really making that decision?",
+    "type": "scenario",
+    "contexts": ["personal"],
+    "attributes_targeted": ["control"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["control", "autonomy_preference"],
+    "options": [
+      {"id": "a", "text": "Me - I'll weigh the input but the decision is mine.", "evidence": [
+        {"attribute": "control", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Mostly my parents, teachers, or circumstances will decide it for me.", "evidence": [
+        {"attribute": "control", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "I'll go along with whatever seems easiest at the time.", "evidence": [
+        {"attribute": "control", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q026",
+    "text": "A career you've never seriously considered comes up in conversation. What do you do?",
+    "type": "scenario",
+    "contexts": ["social"],
+    "attributes_targeted": ["curiosity"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["curiosity", "ambiguity_tolerance"],
+    "options": [
+      {"id": "a", "text": "Look it up and ask questions out of genuine interest.", "evidence": [
+        {"attribute": "curiosity", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "Nod politely but don't think about it again.", "evidence": [
+        {"attribute": "curiosity", "direction": "contradicts", "strength": 0.6}
+      ]},
+      {"id": "c", "text": "Dismiss it quickly because it doesn't match what I already planned.", "evidence": [
+        {"attribute": "curiosity", "direction": "contradicts", "strength": 0.7}
+      ]}
+    ]
+  },
+  {
+    "id": "q027",
+    "text": "How much do you agree: 'I feel capable of handling the challenges involved in pursuing the career path I'm interested in.'",
+    "type": "likert",
+    "contexts": ["personal"],
+    "attributes_targeted": ["confidence"],
+    "reliability": 0.5,
+    "effort": 1,
+    "discriminates_between": ["confidence"],
+    "options": [
+      {"id": "a", "text": "Strongly agree", "evidence": [
+        {"attribute": "confidence", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "Agree", "evidence": [
+        {"attribute": "confidence", "direction": "supports", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "Neutral", "evidence": [
+        {"attribute": "confidence", "direction": "neutral", "strength": 0.2}
+      ]},
+      {"id": "d", "text": "Disagree", "evidence": [
+        {"attribute": "confidence", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "e", "text": "Strongly disagree", "evidence": [
+        {"attribute": "confidence", "direction": "contradicts", "strength": 0.8}
+      ]}
+    ]
+  },
+  {
+    "id": "q028",
+    "text": "Think of the last time you learned something new outside of a class or course requirement. What happened?",
+    "type": "reflection",
+    "contexts": ["learning"],
+    "attributes_targeted": ["self_directed_learning"],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": ["self_directed_learning"],
+    "options": [
+      {"id": "a", "text": "I sought it out myself and taught myself, using videos, books, or practice.", "evidence": [
+        {"attribute": "self_directed_learning", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "I only really learn things when required to, for school or work.", "evidence": [
+        {"attribute": "self_directed_learning", "direction": "contradicts", "strength": 0.7}
+      ]},
+      {"id": "c", "text": "I can't think of a recent example.", "evidence": [
+        {"attribute": "self_directed_learning", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q029",
+    "text": "Which best describes your experience so far?",
+    "type": "self_report",
+    "contexts": ["academic", "work"],
+    "attributes_targeted": ["practical_experience", "technical_skill_depth"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["practical_experience", "technical_skill_depth"],
+    "options": [
+      {"id": "a", "text": "I've built or done several real projects/hands-on work in an area I care about.", "evidence": [
+        {"attribute": "practical_experience", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "b", "text": "I've gone deep on the theory or technical side of one subject, beyond what's required.", "evidence": [
+        {"attribute": "technical_skill_depth", "direction": "supports", "strength": 0.85}
+      ]},
+      {"id": "c", "text": "Mostly just classroom material so far, not much beyond that.", "evidence": [
+        {"attribute": "practical_experience", "direction": "contradicts", "strength": 0.5},
+        {"attribute": "technical_skill_depth", "direction": "contradicts", "strength": 0.5}
+      ]}
+    ]
+  },
+  {
+    "id": "q030",
+    "text": "When you learn a concept in one subject or context, what usually happens?",
+    "type": "reflection",
+    "contexts": ["learning"],
+    "attributes_targeted": ["skill_transfer_ability", "domain_knowledge_breadth"],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": ["skill_transfer_ability", "domain_knowledge_breadth"],
+    "options": [
+      {"id": "a", "text": "I notice how it connects to or applies in other areas I know.", "evidence": [
+        {"attribute": "skill_transfer_ability", "direction": "supports", "strength": 0.8}
+      ]},
+      {"id": "b", "text": "I keep it fairly separate - useful for that subject and not much else.", "evidence": [
+        {"attribute": "skill_transfer_ability", "direction": "contradicts", "strength": 0.5}
+      ]},
+      {"id": "c", "text": "I tend to pick up bits of knowledge across many different areas generally.", "evidence": [
+        {"attribute": "domain_knowledge_breadth", "direction": "supports", "strength": 0.75}
+      ]}
+    ]
+  }
+]
