@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<StudentEntity, String> {
     List<StudentEntity> findAllByOrderByCreatedAtDesc();
+
+    boolean existsByName(String name);
 }
