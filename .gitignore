@@ -1,0 +1,27 @@
+# Build output
+backend/target/
+frontend/node_modules/
+frontend/dist/
+
+# Local database files
+backend/data/
+*.mv.db
+*.trace.db
+
+# Python prototype caches
+__pycache__/
+.pytest_cache/
+
+# Editors / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Transfer folder
+_incoming/
+
+# Local working notes (not part of the repo)
+docs/STATUS.md
+prototypes/**/PROJECT_CONTEXT.md
