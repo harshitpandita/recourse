@@ -1,0 +1,2327 @@
+[
+  {
+    "id": "q001",
+    "text": "If you had a free afternoon to explore something new, which pulls you in most?",
+    "type": "forced_choice",
+    "contexts": [
+      "personal"
+    ],
+    "attributes_targeted": [
+      "realistic",
+      "investigative",
+      "artistic"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "realistic"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Tinkering with a gadget, app, or piece of tech to see how it works.",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Reading about a scientific discovery or watching a documentary on how the universe works.",
+        "evidence": [
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Sketching, designing, or making something visually creative.",
+        "evidence": [
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "Going for a walk outdoors, noticing plants, animals, or weather.",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q002",
+    "text": "A friend asks for advice about a problem they're having with their group project. What do you naturally do?",
+    "type": "scenario",
+    "contexts": [
+      "social"
+    ],
+    "attributes_targeted": [
+      "social",
+      "conventional",
+      "enterprising"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "social",
+      "conventional"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Listen closely and help them think through the group dynamics.",
+        "evidence": [
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Ask for the details of exactly what happened so you understand the situation precisely.",
+        "evidence": [
+          {
+            "attribute": "conventional",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Think about how to reorganize the group to run more efficiently.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q003",
+    "text": "Pick the task you'd rather spend a free Saturday on.",
+    "type": "mini_task",
+    "contexts": [
+      "personal"
+    ],
+    "attributes_targeted": [
+      "realistic",
+      "artistic"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "realistic",
+      "artistic"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Building or fixing something physical (furniture, a bike, a small circuit).",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Writing a story, composing music, or making art for its own sake.",
+        "evidence": [
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Neither really appeals to me.",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "contradicts",
+            "strength": 0.3
+          },
+          {
+            "attribute": "artistic",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q004",
+    "text": "Which puzzle would you rather spend twenty minutes on?",
+    "type": "forced_choice",
+    "contexts": [
+      "hypothetical"
+    ],
+    "attributes_targeted": [
+      "investigative",
+      "enterprising"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "investigative",
+      "enterprising"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "A logic or number puzzle with one correct, elegant solution.",
+        "evidence": [
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "A case study about why a small shop's sales are dropping.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q005",
+    "text": "In a group project at school or college, which role do you gravitate toward?",
+    "type": "scenario",
+    "contexts": [
+      "academic"
+    ],
+    "attributes_targeted": [
+      "conventional",
+      "realistic",
+      "artistic"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "conventional",
+      "realistic"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "The one who researches and organizes the information / structures the report.",
+        "evidence": [
+          {
+            "attribute": "conventional",
+            "direction": "supports",
+            "strength": 0.75
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "The one who builds or codes the actual thing.",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "The one who designs how it looks or is presented.",
+        "evidence": [
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.75
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q006",
+    "text": "A recipe serves 4 and needs 250g of rice. You need to serve 11 people. How do you figure out how much rice to use?",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "quantitative"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "quantitative",
+      "analytical"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Set up a ratio and calculate it precisely (250/4 x 11).",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Estimate roughly - 'a bit less than triple' and round generously.",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I'd look it up or ask someone rather than calculate it myself.",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q007",
+    "text": "Which of these is the odd one out, and why: lecture, tutorial, mentorship, textbook?",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "verbal"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "verbal",
+      "pattern"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "'Textbook' - the others involve a live person guiding you, this one doesn't.",
+        "evidence": [
+          {
+            "attribute": "verbal",
+            "direction": "supports",
+            "strength": 0.75
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "'Mentorship' - it's more personal and long-term than the others.",
+        "evidence": [
+          {
+            "attribute": "verbal",
+            "direction": "supports",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Not sure - I'd need more time to think about it than this allows.",
+        "evidence": [
+          {
+            "attribute": "verbal",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q008",
+    "text": "Picture folding a flat square piece of paper in half twice, then cutting a small triangle off one folded corner. When unfolded, how many holes will there be? How did you get your answer?",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "spatial"
+    ],
+    "reliability": 0.6,
+    "effort": 2,
+    "discriminates_between": [
+      "spatial",
+      "pattern"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "I mentally pictured the folds and unfolds and counted the holes.",
+        "evidence": [
+          {
+            "attribute": "spatial",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "I guessed a plausible-sounding number.",
+        "evidence": [
+          {
+            "attribute": "spatial",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I'd need to actually fold paper to know for sure.",
+        "evidence": [
+          {
+            "attribute": "spatial",
+            "direction": "neutral",
+            "strength": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q009",
+    "text": "Your team's weekly meeting keeps running over time and nothing gets decided. What's your first move?",
+    "type": "scenario",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "analytical",
+      "creative"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "analytical",
+      "creative"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "List out exactly why it's happening, step by step, before proposing a fix.",
+        "evidence": [
+          {
+            "attribute": "analytical",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Suggest a completely different format for the meeting altogether.",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.75
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Let it keep happening; it's not really my problem to fix.",
+        "evidence": [
+          {
+            "attribute": "analytical",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q010",
+    "text": "Sequence: 2, 6, 12, 20, 30, ... What's the next number, and how did you find it?",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "pattern"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "pattern",
+      "quantitative"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Noticed the gaps increase by 2 each time (4,6,8,10) and continued the pattern to get 42.",
+        "evidence": [
+          {
+            "attribute": "pattern",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Recognized it as n(n+1) and computed the next value directly.",
+        "evidence": [
+          {
+            "attribute": "pattern",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "quantitative",
+            "direction": "supports",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Guessed a number that seemed reasonable.",
+        "evidence": [
+          {
+            "attribute": "pattern",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q011",
+    "text": "Which work setup sounds better to you?",
+    "type": "forced_choice",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "autonomy",
+      "structure"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "autonomy",
+      "structure"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "I get a goal and figure out my own way to reach it.",
+        "evidence": [
+          {
+            "attribute": "autonomy",
+            "direction": "supports",
+            "strength": 0.85
+          },
+          {
+            "attribute": "structure",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "I get a clear, step-by-step process to follow.",
+        "evidence": [
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.85
+          },
+          {
+            "attribute": "autonomy",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q012",
+    "text": "You're assigned a big task. Which do you prefer?",
+    "type": "forced_choice",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "collaboration"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "collaboration"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Working with a small team, bouncing ideas back and forth throughout.",
+        "evidence": [
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Owning it myself and checking in only at milestones.",
+        "evidence": [
+          {
+            "attribute": "collaboration",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Working alongside others but mostly on my own sub-part.",
+        "evidence": [
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q013",
+    "text": "Your manager or teacher gives you a task with almost no instructions and says 'figure out what's needed.' How do you feel?",
+    "type": "scenario",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "ambiguity_tolerance"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "ambiguity_tolerance",
+      "structure"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Energized - I like defining the problem myself.",
+        "evidence": [
+          {
+            "attribute": "ambiguity_tolerance",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Uncomfortable - I'd rather ask a lot of clarifying questions first.",
+        "evidence": [
+          {
+            "attribute": "ambiguity_tolerance",
+            "direction": "contradicts",
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Anxious, but I'd push through anyway.",
+        "evidence": [
+          {
+            "attribute": "ambiguity_tolerance",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q014",
+    "text": "Which week would you enjoy more?",
+    "type": "forced_choice",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "pace",
+      "variety"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "pace",
+      "variety"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Deep, focused work on one thing for the whole week.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "contradicts",
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Several different tasks or projects, switching between them daily.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "A fast-moving week with tight deadlines and constant momentum.",
+        "evidence": [
+          {
+            "attribute": "pace",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q015",
+    "text": "Picture your ideal workday. Which is closer?",
+    "type": "scenario",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "structure",
+      "collaboration"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "structure",
+      "collaboration"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "A clear schedule, regular check-ins, defined responsibilities.",
+        "evidence": [
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Long stretches of unstructured time with lots of interaction with others throughout.",
+        "evidence": [
+          {
+            "attribute": "structure",
+            "direction": "contradicts",
+            "strength": 0.5
+          },
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Long stretches of quiet, independent focus time.",
+        "evidence": [
+          {
+            "attribute": "collaboration",
+            "direction": "contradicts",
+            "strength": 0.7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q016",
+    "text": "Imagine two job offers, otherwise similar. Which would you choose?",
+    "type": "forced_choice",
+    "contexts": [
+      "hypothetical",
+      "financial"
+    ],
+    "attributes_targeted": [
+      "working_conditions",
+      "achievement"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "working_conditions"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Higher pay and more financially rewarding, but less job security.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.85
+          },
+          {
+            "attribute": "working_conditions",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Lower pay but very stable and secure.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.85
+          },
+          {
+            "attribute": "working_conditions",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Lower pay but constantly intellectually challenging and stimulating.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.85
+          },
+          {
+            "attribute": "working_conditions",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q017",
+    "text": "What would make you feel most proud of a piece of work?",
+    "type": "forced_choice",
+    "contexts": [
+      "personal"
+    ],
+    "attributes_targeted": [
+      "achievement",
+      "recognition",
+      "relationships"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "achievement",
+      "recognition"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Knowing I achieved something genuinely difficult, regardless of who notices.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Being recognized publicly and respected for it.",
+        "evidence": [
+          {
+            "attribute": "recognition",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Knowing it actually helped or changed something for other people.",
+        "evidence": [
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q018",
+    "text": "Which future bothers you least?",
+    "type": "forced_choice",
+    "contexts": [
+      "hypothetical"
+    ],
+    "attributes_targeted": [
+      "independence",
+      "working_conditions"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "independence",
+      "working_conditions"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "A demanding career that leaves little personal time, but I control my own decisions at work.",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "working_conditions",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "A flexible, low-stress career that leaves plenty of time for personal life.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "A career where I can live and work from anywhere, on my own terms.",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.85
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q019",
+    "text": "Rank what matters most to you in a future job: being well paid, feeling secure, or doing meaningful/impactful work. Which comes first?",
+    "type": "ranking",
+    "contexts": [
+      "financial"
+    ],
+    "attributes_targeted": [
+      "working_conditions",
+      "relationships"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "working_conditions",
+      "relationships"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Being well paid comes first for me.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Feeling secure comes first for me.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Doing meaningful, impactful work comes first for me.",
+        "evidence": [
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q101",
+    "text": "Your first job: which manager would you rather have?",
+    "type": "forced_choice",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "support",
+      "independence"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "support",
+      "independence"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "One who checks in often, explains what's expected and backs you up when things go wrong.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "One who gives you a goal and leaves you alone until you need them.",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "autonomy",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "support",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Honestly, I'd rather not have a manager at all.",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.4
+          },
+          {
+            "attribute": "support",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q102",
+    "text": "You made a mistake that cost your team a deadline. What would help you most the next day?",
+    "type": "scenario",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "support",
+      "relationships"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "support",
+      "achievement"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "A senior sitting down with me to go over what happened, without blame.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Being left to fix it myself so I can prove I can.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.5
+          },
+          {
+            "attribute": "support",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Knowing the team still has my back.",
+        "evidence": [
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q103",
+    "text": "How much does it matter to you that your organisation treats people fairly, even if the pay is a bit lower?",
+    "type": "likert",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "support",
+      "working_conditions"
+    ],
+    "reliability": 0.5,
+    "effort": 1,
+    "discriminates_between": [],
+    "options": [
+      {
+        "id": "1",
+        "text": "Hardly at all, pay comes first.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "support",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "text": "A little.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.2
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "text": "Quite a lot.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "text": "It's a dealbreaker for me.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.9
+          },
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q104",
+    "text": "A classmate is struggling with a topic you understand well. The exam is in two days and you're also behind. What do you do?",
+    "type": "scenario",
+    "contexts": [
+      "academic"
+    ],
+    "attributes_targeted": [
+      "social",
+      "achievement"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "social",
+      "achievement"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Spend an evening explaining it to them. I actually enjoy that.",
+        "evidence": [
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Send them good notes or a video, then focus on my own prep.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.5
+          },
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.2
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Focus on myself first. I'll help after the exam.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "social",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q105",
+    "text": "Which of these would feel most rewarding at the end of a day?",
+    "type": "forced_choice",
+    "contexts": [
+      "personal"
+    ],
+    "attributes_targeted": [
+      "social",
+      "investigative",
+      "artistic",
+      "enterprising"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "social",
+      "enterprising"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Someone told me I really helped them.",
+        "evidence": [
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "I finally understood something that had confused me for weeks.",
+        "evidence": [
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I made something that looks or sounds exactly how I imagined it.",
+        "evidence": [
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "I convinced a group to go with my plan and it worked.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q106",
+    "text": "Rank what you'd want people to say about your work in five years. Pick the one that matters most.",
+    "type": "ranking",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "recognition",
+      "achievement",
+      "relationships"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "recognition",
+      "achievement"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "\"They're one of the best in their field.\"",
+        "evidence": [
+          {
+            "attribute": "recognition",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "\"They quietly do excellent work.\"",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "recognition",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "\"They made a real difference to people.\"",
+        "evidence": [
+          {
+            "attribute": "relationships",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "\"They built something of their own.\"",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q107",
+    "text": "Two internship offers, same pay. One is at a well-known company where you'd do routine tasks. The other is at an unknown startup where you'd own a real project. Which do you take?",
+    "type": "scenario",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "recognition",
+      "achievement",
+      "ambiguity_tolerance"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "recognition",
+      "achievement"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "The well-known name. It opens doors.",
+        "evidence": [
+          {
+            "attribute": "recognition",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "The startup. I'd rather do work that matters.",
+        "evidence": [
+          {
+            "attribute": "achievement",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "ambiguity_tolerance",
+            "direction": "supports",
+            "strength": 0.5
+          },
+          {
+            "attribute": "recognition",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Whichever has the better mentor.",
+        "evidence": [
+          {
+            "attribute": "support",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q108",
+    "text": "Quick task: list as many uses as you can for an old cycle tyre in 30 seconds. How many did you get?",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "creative"
+    ],
+    "reliability": 0.6,
+    "effort": 2,
+    "discriminates_between": [
+      "creative"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "0 to 2",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "3 to 5",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "6 to 8",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "9 or more",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q109",
+    "text": "Your college fest needs a theme and nobody has an idea. What's your move?",
+    "type": "scenario",
+    "contexts": [
+      "social"
+    ],
+    "attributes_targeted": [
+      "creative",
+      "enterprising",
+      "conventional"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "creative",
+      "conventional"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Throw out a bunch of wild ideas until one sticks.",
+        "evidence": [
+          {
+            "attribute": "creative",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Look at what worked in past years and improve on it.",
+        "evidence": [
+          {
+            "attribute": "conventional",
+            "direction": "supports",
+            "strength": 0.5
+          },
+          {
+            "attribute": "creative",
+            "direction": "contradicts",
+            "strength": 0.3
+          },
+          {
+            "attribute": "analytical",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Get everyone in a room and lead the brainstorm.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q110",
+    "text": "Which kind of week sounds better to you?",
+    "type": "forced_choice",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "pace",
+      "variety",
+      "structure"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "pace",
+      "structure"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Lots happening at once, quick decisions, a bit chaotic.",
+        "evidence": [
+          {
+            "attribute": "pace",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "variety",
+            "direction": "supports",
+            "strength": 0.4
+          },
+          {
+            "attribute": "structure",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "A steady rhythm where I can go deep on one thing.",
+        "evidence": [
+          {
+            "attribute": "pace",
+            "direction": "contradicts",
+            "strength": 0.6
+          },
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Different tasks each day, but nothing rushed.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "pace",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q111",
+    "text": "When an exam is only two days away, how do you usually work?",
+    "type": "reflection",
+    "contexts": [
+      "academic"
+    ],
+    "attributes_targeted": [
+      "pace",
+      "structure"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "pace",
+      "structure"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "I actually focus best under that pressure.",
+        "evidence": [
+          {
+            "attribute": "pace",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "I'd have planned so I'm not rushing.",
+        "evidence": [
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "pace",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I get stressed and my work suffers.",
+        "evidence": [
+          {
+            "attribute": "pace",
+            "direction": "contradicts",
+            "strength": 0.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q112",
+    "text": "Your phone suddenly stops connecting to Wi-Fi, though everyone else's works. What do you do first?",
+    "type": "scenario",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "analytical",
+      "investigative",
+      "realistic"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "analytical",
+      "realistic"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Work through it step by step: restart, forget the network, check settings.",
+        "evidence": [
+          {
+            "attribute": "analytical",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Search online for exactly why this happens.",
+        "evidence": [
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "analytical",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Hand it to someone who's good with phones.",
+        "evidence": [
+          {
+            "attribute": "analytical",
+            "direction": "contradicts",
+            "strength": 0.3
+          },
+          {
+            "attribute": "realistic",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q113",
+    "text": "Puzzle: A shop sells pens at 3 for 20 rupees. How much do 12 pens cost? (Pick what you'd answer without a calculator.)",
+    "type": "mini_task",
+    "contexts": [
+      "problem_solving"
+    ],
+    "attributes_targeted": [
+      "quantitative",
+      "analytical"
+    ],
+    "reliability": 0.75,
+    "effort": 1,
+    "discriminates_between": [
+      "quantitative"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "80 rupees",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "analytical",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "60 rupees",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "contradicts",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I'd need to work it out on paper.",
+        "evidence": [
+          {
+            "attribute": "quantitative",
+            "direction": "contradicts",
+            "strength": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q114",
+    "text": "Which school or college subject felt most like you, regardless of marks?",
+    "type": "forced_choice",
+    "contexts": [
+      "academic"
+    ],
+    "attributes_targeted": [
+      "investigative",
+      "conventional",
+      "social",
+      "artistic"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "investigative",
+      "conventional"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Physics, chemistry or biology",
+        "evidence": [
+          {
+            "attribute": "investigative",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Accounts, economics or business studies",
+        "evidence": [
+          {
+            "attribute": "conventional",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.5
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Psychology, sociology or languages",
+        "evidence": [
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "verbal",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "Art, music or design",
+        "evidence": [
+          {
+            "attribute": "artistic",
+            "direction": "supports",
+            "strength": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q115",
+    "text": "Organising your group's trip: which part would you volunteer for?",
+    "type": "forced_choice",
+    "contexts": [
+      "social"
+    ],
+    "attributes_targeted": [
+      "conventional",
+      "enterprising",
+      "social",
+      "realistic"
+    ],
+    "reliability": 0.6,
+    "effort": 1,
+    "discriminates_between": [
+      "conventional",
+      "enterprising"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "The budget spreadsheet and who-paid-what.",
+        "evidence": [
+          {
+            "attribute": "conventional",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "quantitative",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Negotiating the hotel price and bookings.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "verbal",
+            "direction": "supports",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Making sure everyone's included and happy.",
+        "evidence": [
+          {
+            "attribute": "social",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "Planning the route and driving.",
+        "evidence": [
+          {
+            "attribute": "realistic",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "spatial",
+            "direction": "supports",
+            "strength": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q116",
+    "text": "How do you feel about doing the same kind of task every day if you're good at it?",
+    "type": "likert",
+    "contexts": [
+      "work"
+    ],
+    "attributes_targeted": [
+      "variety",
+      "structure"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "variety"
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "I'd love that, it's comfortable.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "contradicts",
+            "strength": 0.7
+          },
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "text": "Fine for a while.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "text": "I'd get restless after a few months.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "text": "I'd get bored within weeks.",
+        "evidence": [
+          {
+            "attribute": "variety",
+            "direction": "supports",
+            "strength": 0.9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q117",
+    "text": "Would you rather start your own thing with uncertain income, or have a stable salary doing interesting work?",
+    "type": "forced_choice",
+    "contexts": [
+      "financial"
+    ],
+    "attributes_targeted": [
+      "independence",
+      "working_conditions",
+      "enterprising"
+    ],
+    "reliability": 0.65,
+    "effort": 1,
+    "discriminates_between": [
+      "independence",
+      "working_conditions"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "Start my own thing.",
+        "evidence": [
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.8
+          },
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "working_conditions",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "Stable salary, interesting work.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "independence",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "Stable job first, my own thing later.",
+        "evidence": [
+          {
+            "attribute": "working_conditions",
+            "direction": "supports",
+            "strength": 0.4
+          },
+          {
+            "attribute": "independence",
+            "direction": "supports",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "q118",
+    "text": "In a group project, which role do you naturally end up in?",
+    "type": "reflection",
+    "contexts": [
+      "academic"
+    ],
+    "attributes_targeted": [
+      "autonomy",
+      "collaboration",
+      "enterprising"
+    ],
+    "reliability": 0.55,
+    "effort": 1,
+    "discriminates_between": [
+      "autonomy",
+      "collaboration"
+    ],
+    "options": [
+      {
+        "id": "a",
+        "text": "I take a clear piece and do it on my own.",
+        "evidence": [
+          {
+            "attribute": "autonomy",
+            "direction": "supports",
+            "strength": 0.7
+          },
+          {
+            "attribute": "collaboration",
+            "direction": "contradicts",
+            "strength": 0.3
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "text": "I coordinate and keep everyone on track.",
+        "evidence": [
+          {
+            "attribute": "enterprising",
+            "direction": "supports",
+            "strength": 0.6
+          },
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.6
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "text": "I work closely with one or two people on the hardest bit.",
+        "evidence": [
+          {
+            "attribute": "collaboration",
+            "direction": "supports",
+            "strength": 0.7
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "text": "I end up redoing other people's parts so it's right.",
+        "evidence": [
+          {
+            "attribute": "autonomy",
+            "direction": "supports",
+            "strength": 0.5
+          },
+          {
+            "attribute": "structure",
+            "direction": "supports",
+            "strength": 0.4
+          },
+          {
+            "attribute": "collaboration",
+            "direction": "contradicts",
+            "strength": 0.4
+          }
+        ]
+      }
+    ]
+  }
+]
