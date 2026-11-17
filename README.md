@@ -106,6 +106,8 @@ Open `http://localhost:5173`. In development, the frontend forwards `/api` reque
 
 The `demo` profile creates three example students on startup. Each one answers the real adaptive assessment through the same services a real student uses, so their evidence is genuine. The profile does nothing if the students already exist.
 
+Demo students are kept in their own database file (`backend/data/demo/`), separate from real students (`backend/data/recourse.*`). Resetting the demo never touches real data.
+
 | Student | Stage | Leans towards |
 |---|---|---|
 | Aarav (demo) | Class 12 | Maths, analysis, research |
@@ -126,10 +128,15 @@ cd backend
 mvn spring-boot:run "-Dspring-boot.run.profiles=demo"
 ```
 
-To reset to a fresh state, stop the backend and delete the database folder, then start again:
+To reset the demo, stop the backend, delete the demo database, then start again with the demo profile:
 
-- Command Prompt: `rmdir /s /q backend\data`
-- PowerShell: `Remove-Item -Recurse -Force backend\data`
+- Command Prompt: `rmdir /s /q backend\data\demo`
+- PowerShell: `Remove-Item -Recurse -Force backend\data\demo`
+
+To clear real students instead (this deletes their answers for good), stop the backend and delete only the main database files:
+
+- Command Prompt: `del backend\data\recourse.*`
+- PowerShell: `Remove-Item backend\data\recourse.*`
 
 ## Tests
 
@@ -138,14 +145,14 @@ cd backend
 mvn test
 ```
 
-This runs 70 tests:
+This runs 71 tests:
 
 | Area | Tests |
 |---|---|
 | Engine: belief calculation, question selection, matching, evidence and contests | 45 |
 | Data files: questions and careers load and are valid | 7 |
 | End-to-end flow through the real services and an in-memory database | 8 |
-| Demo seed: personas, idempotency, and the contest used in the live demo | 7 |
+| Demo seed: personas, idempotency, the contest used in the live demo, and its separate database | 8 |
 | Explanation template: the fallback text used when the language model is unavailable | 3 |
 
 The frontend is type-checked as part of its build:
