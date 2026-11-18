@@ -19,6 +19,7 @@ Most career tests give a result and stop there. Recourse treats a recommendation
   - It then opens a short follow-up session on the disputed areas.
   - A dispute is evidence, not an override: if the follow-up answers confirm the original reading, the match can stay.
 - **Pushback log.** Every contest and its effect on the ranking is kept and visible to the student.
+- **Pilot feedback.** After a student's first contest, a short card asks for three 1 to 5 ratings and an optional comment. It is asked once per student and can be exported as CSV.
 - **Return codes instead of accounts.** At signup each student gets a short code such as `K7P-3QX` (no 0, O, 1 or I, so it is hard to misread). They come back with their name and that code. The app never lists other students.
 - **Local explanations.** A small language model running on the same machine (Phi-4-mini through Ollama) rewrites the computed facts as a short note. It only rephrases. It never ranks, scores or decides. If it is slow or unavailable, a deterministic template is used instead.
 - **Indian context.** Each career lists Indian education routes and entrance exams, with sources.
@@ -148,7 +149,7 @@ cd backend
 mvn test
 ```
 
-This runs 83 tests:
+This runs 90 tests:
 
 | Area | Tests |
 |---|---|
@@ -157,6 +158,7 @@ This runs 83 tests:
 | End-to-end flow through the real services and an in-memory database | 8 |
 | Demo seed: personas, their return codes, idempotency, the contest used in the live demo, and its separate database | 9 |
 | Return codes: format, uniqueness, forgiving input, same answer for a wrong name or code, no student list | 11 |
+| Pilot feedback: asked only after the first contest, ratings 1 to 5, one per student, CSV export without names and with safe escaping | 7 |
 | Explanation template: the fallback text used when the language model is unavailable | 3 |
 
 The frontend is type-checked as part of its build:
@@ -165,6 +167,24 @@ The frontend is type-checked as part of its build:
 cd frontend
 npm run build
 ```
+
+## Pilot feedback export
+
+After a student's first contest, the app shows a short card with three ratings from 1 (not at all) to 5 (completely):
+
+- The matches made sense
+- The explanation helped
+- Pushing back felt like it worked
+
+There is also an optional comment. The card tells students: "Your answers are saved without your name and may be used in a student project report." A student who chooses "Not now" can still answer later from a "Share feedback" link in the pushback log. Each student can give feedback once.
+
+With the backend running, download every answer as a CSV file from:
+
+```
+http://localhost:8080/api/v1/feedback/export
+```
+
+The file has no names. Each row has the submission time, a short student reference, the student's stage, what was disputed, the three ratings and the comment. Comments that begin with `=`, `+`, `-` or `@` get a leading apostrophe so a spreadsheet shows them as text instead of running them as formulas.
 
 ## Explanation benchmark
 
@@ -207,6 +227,8 @@ All endpoints are under `/api/v1`.
 | POST | `/students/{id}/contests/evidence` | Dispute a single piece of evidence |
 | POST | `/students/{id}/contests/recommendation` | Dispute a recommendation |
 | GET | `/students/{id}/contests` | Pushback log |
+| GET, POST | `/students/{id}/feedback` | Whether the student has given pilot feedback; give it (once) |
+| GET | `/feedback/export` | All pilot feedback as CSV, without names |
 
 ## Design principles
 

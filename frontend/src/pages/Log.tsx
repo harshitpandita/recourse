@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api, ContestOutcome, Student } from "../api";
 import { ContestOutcomeView } from "../components/ContestOutcomeView";
 import { ErrorNote, Loading } from "../components/Feedback";
+import { FeedbackCard, feedbackWasShown } from "../components/FeedbackCard";
 
 const when = new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
 
@@ -9,9 +10,16 @@ export function Log({ student }: { student: Student }) {
   const [items, setItems] = useState<ContestOutcome[] | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [open, setOpen] = useState<string | null>(null);
+  /** Offer feedback again only if the card was shown before and the student hasn't answered. */
+  const [canShare, setCanShare] = useState(false);
+  const [sharing, setSharing] = useState(false);
 
   const load = () => { setError(null); api.contests(student.id).then(setItems).catch(setError); };
   useEffect(load, [student.id]);
+  useEffect(() => {
+    if (!feedbackWasShown(student.id)) return;
+    api.feedbackStatus(student.id).then(s => setCanShare(!s.given)).catch(() => setCanShare(false));
+  }, [student.id]);
 
   if (error) return <ErrorNote error={error} onRetry={load} />;
   if (!items) return <Loading what="your pushback log" />;
@@ -21,7 +29,11 @@ export function Log({ student }: { student: Student }) {
       <header className="page-head">
         <h1 className="display display--sm">Every time you pushed back</h1>
         <p className="lede">A permanent record of your objections and what each one changed. Nothing here is ever deleted.</p>
+        {canShare && !sharing && (
+          <button className="link-button small" onClick={() => setSharing(true)}>Share feedback</button>
+        )}
       </header>
+      {sharing && <FeedbackCard studentId={student.id} onClose={() => setSharing(false)} />}
       {items.length === 0 ? (
         <p className="quiet">No objections yet. Open a match or a line in "What we think" and tell us where we're wrong.</p>
       ) : (

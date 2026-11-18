@@ -59,7 +59,14 @@ export interface ContestOutcome {
   createdEvidence: string[]; createdAt: string;
 }
 
-export interface ContestResult { outcome: ContestOutcome; followUp: Question | null }
+/** askForFeedback is true only after the student's first contest, until they give feedback. */
+export interface ContestResult { outcome: ContestOutcome; followUp: Question | null; askForFeedback: boolean }
+
+export interface FeedbackStatus { given: boolean }
+
+export interface FeedbackAnswers {
+  matchesMadeSense: number; explanationHelped: number; pushingBackWorked: number; comment: string | null;
+}
 
 export interface SystemStatus {
   llmEnabled: boolean; llmReachable: boolean; model: string;
@@ -85,7 +92,8 @@ async function call<T>(method: "GET" | "POST", path: string, body?: unknown): Pr
     } catch { /* not JSON */ }
     throw new ApiError(res.status, detail);
   }
-  return (await res.json()) as T;
+  const text = await res.text();
+  return text ? (JSON.parse(text) as T) : null;
 }
 
 async function must<T>(p: Promise<T | null>): Promise<T> {
@@ -113,6 +121,8 @@ export const api = {
   contestEvidence: (id: string, evidenceId: string, reason: string) =>
     must(call<ContestResult>("POST", `/students/${id}/contests/evidence`, { evidenceId, reason })),
   contests: (id: string) => must(call<ContestOutcome[]>("GET", `/students/${id}/contests`)),
+  feedbackStatus: (id: string) => must(call<FeedbackStatus>("GET", `/students/${id}/feedback`)),
+  sendFeedback: (id: string, answers: FeedbackAnswers) => call<void>("POST", `/students/${id}/feedback`, answers),
 };
 
 export const pct = (v: number) => `${Math.round(v * 100)}%`;

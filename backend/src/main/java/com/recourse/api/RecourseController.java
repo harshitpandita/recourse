@@ -3,10 +3,13 @@ package com.recourse.api;
 import com.recourse.explain.ExplanationService;
 import com.recourse.service.AssessmentService;
 import com.recourse.service.ContestService;
+import com.recourse.service.FeedbackService;
 import com.recourse.service.RecommendationService;
 import com.recourse.service.StudentService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,15 +31,17 @@ public class RecourseController {
     private final RecommendationService recommendations;
     private final ContestService contests;
     private final ExplanationService explanations;
+    private final FeedbackService feedback;
 
     public RecourseController(StudentService students, AssessmentService assessment,
                               RecommendationService recommendations, ContestService contests,
-                              ExplanationService explanations) {
+                              ExplanationService explanations, FeedbackService feedback) {
         this.students = students;
         this.assessment = assessment;
         this.recommendations = recommendations;
         this.contests = contests;
         this.explanations = explanations;
+        this.feedback = feedback;
     }
 
     @GetMapping("/system")
@@ -123,5 +128,29 @@ public class RecourseController {
     public List<Views.ContestOutcome> contestHistory(@PathVariable String id) {
         students.get(id);
         return contests.history(id);
+    }
+
+    // Pilot feedback
+
+    @GetMapping("/students/{id}/feedback")
+    public Views.FeedbackStatus feedbackStatus(@PathVariable String id) {
+        students.get(id);
+        return new Views.FeedbackStatus(feedback.given(id));
+    }
+
+    @PostMapping("/students/{id}/feedback")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void giveFeedback(@PathVariable String id, @Valid @RequestBody Requests.Feedback body) {
+        students.get(id);
+        feedback.submit(id, body.matchesMadeSense(), body.explanationHelped(), body.pushingBackWorked(), body.comment());
+    }
+
+    /** All pilot feedback as CSV, without names. Starts with a byte-order mark so Excel reads it as UTF-8. */
+    @GetMapping("/feedback/export")
+    public ResponseEntity<String> exportFeedback() {
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"recourse-feedback.csv\"")
+                .contentType(new MediaType("text", "csv", java.nio.charset.StandardCharsets.UTF_8))
+                .body("\uFEFF" + feedback.exportCsv());
     }
 }

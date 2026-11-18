@@ -40,15 +40,18 @@ public class ContestService {
     private final ContestRepository contests;
     private final ViewMapper views;
     private final ObjectMapper json;
+    private final FeedbackService feedback;
 
     public ContestService(StudentModel model, RecommendationService recommendations, AssessmentService assessment,
-                          ContestRepository contests, ViewMapper views, ObjectMapper json) {
+                          ContestRepository contests, ViewMapper views, ObjectMapper json,
+                          FeedbackService feedback) {
         this.model = model;
         this.recommendations = recommendations;
         this.assessment = assessment;
         this.contests = contests;
         this.views = views;
         this.json = json;
+        this.feedback = feedback;
     }
 
     /** "That answer doesn't describe me." */
@@ -134,7 +137,7 @@ public class ContestService {
                 String.join(",", outcome.createdEvidence()), write(outcome), now));
 
         Views.Question followUp = assessment.start(studentId, touched);
-        return new Views.ContestResult(outcome, followUp);
+        return new Views.ContestResult(outcome, followUp, feedback.shouldAsk(studentId));
     }
 
     private static Matcher.Contribution find(List<Matcher.Contribution> list, Attribute a) {

@@ -56,7 +56,10 @@ public final class Views {
                                  List<BeliefChange> changes, List<RankEntry> before, List<RankEntry> after,
                                  List<String> createdEvidence, Instant createdAt) {}
 
-    public record ContestResult(ContestOutcome outcome, Question followUp) {}
+    /** askForFeedback is true only after the student's first contest, until they give feedback. */
+    public record ContestResult(ContestOutcome outcome, Question followUp, boolean askForFeedback) {}
+
+    public record FeedbackStatus(boolean given) {}
 
     public record SystemStatus(boolean llmEnabled, boolean llmReachable, String model,
                                int questions, int careers, int unverifiedCareers) {}

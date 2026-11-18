@@ -182,6 +182,21 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .move--up, .move--new { color: var(--confidence); }
 .move--down { color: var(--contradiction); }
 
+/* Pilot feedback */
+.feedback-card { margin-top: var(--space-5); padding: var(--space-5); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface); max-width: 640px; }
+.feedback-card .h3 { margin: 0 0 var(--space-1); }
+.feedback-card__note { margin: 0 0 var(--space-4); }
+.feedback-card__thanks { margin: 0; }
+.rating { border: 0; padding: 0; margin: 0 0 var(--space-4); }
+.rating__label { padding: 0; margin-bottom: var(--space-2); font-weight: 500; }
+.rating__scale { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+.rating__end { font-size: var(--step--1); color: var(--text-muted); }
+.rating__key { display: none; margin: calc(-1 * var(--space-2)) 0 var(--space-4); }
+.rating__num { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-strong); background: transparent; cursor: pointer; font-variant-numeric: tabular-nums; }
+.rating__num:hover { border-color: var(--text-secondary); }
+.rating__num--on { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.log .page-head .link-button { margin-top: calc(-1 * var(--space-3)); }
+
 /* ---------- Model ---------- */
 .mixed { border-left: 3px solid var(--contradiction); background: var(--contradiction-soft); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); max-width: 760px; }
 .mixed p { margin: 0; }
@@ -229,6 +244,8 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 /* Phones: the four tabs don't fit on one line, so show them as a 2 x 2 grid
    instead of a sideways-scrolling row that hides the last tab. */
 @media (max-width: 520px) {
+  .rating__end { display: none; }
+  .rating__key { display: block; }
   .tabs { display: grid; grid-template-columns: 1fr 1fr; overflow-x: visible; }
   .tab { text-align: center; }
 }

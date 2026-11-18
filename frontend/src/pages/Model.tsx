@@ -3,6 +3,7 @@ import { api, Belief, ContestResult, Evidence, Profile, Question, Student } from
 import { RangeMeter } from "../components/RangeMeter";
 import { Quote } from "../components/Quote";
 import { ContestOutcomeView } from "../components/ContestOutcomeView";
+import { FeedbackCard } from "../components/FeedbackCard";
 import { ErrorNote, Loading } from "../components/Feedback";
 
 /** Plain words for each end of the scale, per pillar. */
@@ -63,6 +64,7 @@ export function Model({ student, onFollowUp }: { student: Student; onFollowUp: (
             )}
             <button className="button button--ghost" onClick={() => setResult(null)}>Done</button>
           </div>
+          {result.askForFeedback && <FeedbackCard studentId={student.id} />}
         </div>
       )}
 

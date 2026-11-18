@@ -3,6 +3,7 @@ import { api, ContestResult, Explanation, pct, Question, Recommendation, Student
 import { RangeMeter } from "../components/RangeMeter";
 import { Quote } from "../components/Quote";
 import { ContestOutcomeView } from "../components/ContestOutcomeView";
+import { FeedbackCard } from "../components/FeedbackCard";
 import { ErrorNote, Loading } from "../components/Feedback";
 
 interface Props {
@@ -180,6 +181,7 @@ function MatchRow({ rank, rec, student, placedForVariety, open, onToggle, onCont
                   Show updated matches
                 </button>
               </div>
+              {result.askForFeedback && <FeedbackCard studentId={student.id} />}
             </div>
           ) : contesting ? (
             <ContestForm rec={rec} student={student} onCancel={() => setContesting(false)}
