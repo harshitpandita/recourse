@@ -46,13 +46,50 @@ public class StudentService {
         this.llm = llm;
     }
 
+    /** Same message whichever part is wrong, so it never reveals whether a name exists. */
+    static final String NO_MATCH = "We couldn't find that name and code together. Check both and try again.";
+
+    /** Retries are only for the very rare case of a random code that is already taken. */
+    private static final int CODE_ATTEMPTS = 20;
+
     public Views.Student create(String name, String stage) {
-        if (!STAGES.contains(stage)) throw new IllegalArgumentException("Stage must be one of " + STAGES);
-        return views.student(students.save(new StudentEntity(Ids.next(), name.strip(), stage, Instant.now())));
+        return create(name, stage, newReturnCode());
     }
 
-    public List<Views.Student> list() {
-        return students.findAllByOrderByCreatedAtDesc().stream().map(views::student).toList();
+    /** For the demo seed, which gives its personas fixed, easy-to-remember codes. */
+    Views.Student create(String name, String stage, String returnCode) {
+        if (!STAGES.contains(stage)) throw new IllegalArgumentException("Stage must be one of " + STAGES);
+        if (!ReturnCodes.isValid(returnCode)) throw new IllegalArgumentException("Not a valid return code");
+        return views.student(students.save(
+                new StudentEntity(Ids.next(), name.strip(), stage, Instant.now(), returnCode)));
+    }
+
+    /** A returning student: name (any case) and return code (any case, spaces or hyphens ignored) must match. */
+    public Views.Student continueWith(String name, String typedCode) {
+        String code = ReturnCodes.normalise(typedCode);
+        String wanted = name == null ? "" : name.strip();
+        return students.findByReturnCode(code)
+                .filter(s -> s.getName().equalsIgnoreCase(wanted))
+                .map(views::student)
+                .orElseThrow(() -> new NotFoundException(NO_MATCH));
+    }
+
+    /** Gives a code to any student created before return codes existed. Returns how many were updated. */
+    public int backfillReturnCodes() {
+        List<StudentEntity> missing = students.findAllByReturnCodeIsNull();
+        for (StudentEntity s : missing) {
+            s.assignReturnCode(newReturnCode());
+            students.save(s);
+        }
+        return missing.size();
+    }
+
+    String newReturnCode() {
+        for (int i = 0; i < CODE_ATTEMPTS; i++) {
+            String code = ReturnCodes.generate();
+            if (!students.existsByReturnCode(code)) return code;
+        }
+        throw new IllegalStateException("Couldn't find a free return code");
     }
 
     public Views.Student get(String id) {

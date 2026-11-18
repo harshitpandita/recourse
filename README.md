@@ -19,6 +19,7 @@ Most career tests give a result and stop there. Recourse treats a recommendation
   - It then opens a short follow-up session on the disputed areas.
   - A dispute is evidence, not an override: if the follow-up answers confirm the original reading, the match can stay.
 - **Pushback log.** Every contest and its effect on the ranking is kept and visible to the student.
+- **Return codes instead of accounts.** At signup each student gets a short code such as `K7P-3QX` (no 0, O, 1 or I, so it is hard to misread). They come back with their name and that code. The app never lists other students.
 - **Local explanations.** A small language model running on the same machine (Phi-4-mini through Ollama) rewrites the computed facts as a short note. It only rephrases. It never ranks, scores or decides. If it is slow or unavailable, a deterministic template is used instead.
 - **Indian context.** Each career lists Indian education routes and entrance exams, with sources.
 - **Runs offline.** There are no paid APIs and no cloud services, and the database is an embedded file.
@@ -108,11 +109,13 @@ The `demo` profile creates three example students on startup. Each one answers t
 
 Demo students are kept in their own database file (`backend/data/demo/`), separate from real students (`backend/data/recourse.*`). Resetting the demo never touches real data.
 
-| Student | Stage | Leans towards |
-|---|---|---|
-| Aarav (demo) | Class 12 | Maths, analysis, research |
-| Meera (demo) | College | People, communication, teamwork. Also has one contest on her top match, followed by a follow-up session that re-confirms it. |
-| Kabir (demo) | Class 10 | Art, design, independence |
+| Student | Return code | Stage | Leans towards |
+|---|---|---|---|
+| Aarav (demo) | DEM-AAR | Class 12 | Maths, analysis, research |
+| Meera (demo) | DEM-MRA | College | People, communication, teamwork. Also has one contest on her top match, followed by a follow-up session that re-confirms it. |
+| Kabir (demo) | DEM-KBR | Class 10 | Art, design, independence |
+
+To open a demo student, use "Coming back?" on the welcome page with the name exactly as shown (any case) and its return code.
 
 Command Prompt:
 
@@ -145,14 +148,15 @@ cd backend
 mvn test
 ```
 
-This runs 71 tests:
+This runs 83 tests:
 
 | Area | Tests |
 |---|---|
 | Engine: belief calculation, question selection, matching, evidence and contests | 45 |
 | Data files: questions and careers load and are valid | 7 |
 | End-to-end flow through the real services and an in-memory database | 8 |
-| Demo seed: personas, idempotency, the contest used in the live demo, and its separate database | 8 |
+| Demo seed: personas, their return codes, idempotency, the contest used in the live demo, and its separate database | 9 |
+| Return codes: format, uniqueness, forgiving input, same answer for a wrong name or code, no student list | 11 |
 | Explanation template: the fallback text used when the language model is unavailable | 3 |
 
 The frontend is type-checked as part of its build:
@@ -192,7 +196,8 @@ All endpoints are under `/api/v1`.
 | Method | Path | Purpose |
 |---|---|---|
 | GET | `/system` | Question and career counts, language model status |
-| POST, GET | `/students` | Create or list students |
+| POST | `/students` | Create a student; the response includes their return code |
+| POST | `/students/continue` | Come back with name and return code (there is no endpoint that lists students) |
 | GET | `/students/{id}`, `/students/{id}/profile`, `/students/{id}/evidence` | Student, belief profile, full evidence trail |
 | POST | `/students/{id}/sessions` | Start an assessment session |
 | GET | `/sessions/{sessionId}/next` | Next question, with the reason it was chosen |
@@ -214,6 +219,7 @@ All endpoints are under `/api/v1`.
 
 - 25 careers and 37 questions. Phase 2 extends this to 40 to 60 careers and adds career adaptability and decision patterns.
 - No user accounts yet. It is a single-machine prototype.
+- Access control is deliberately simple. A name and return code are not a password: there is no limit on how many codes someone can try, and anyone who already has a student's internal id can open that student's data through the API. This is acceptable for a prototype that runs on one machine, but it would need proper accounts before being put online.
 - Abilities are self-reported, not tested.
 - Evaluation so far consists of automated tests, simulated personas and a model benchmark. A larger user study with real students is planned for phase 2.
 

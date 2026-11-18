@@ -10,6 +10,8 @@ public final class Requests {
 
     public record CreateStudent(@NotBlank @Size(max = 80) String name, @NotBlank String stage) {}
 
+    public record ContinueStudent(@NotBlank @Size(max = 80) String name, @NotBlank @Size(max = 20) String code) {}
+
     public record Answer(@NotBlank String questionId, @NotBlank String optionId) {}
 
     public record ContestEvidence(@NotBlank String evidenceId, @Size(max = 500) String reason) {}

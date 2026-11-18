@@ -49,16 +49,17 @@ public class DemoSeeder implements ApplicationRunner {
     /** Safety net: the selector stops well before this. */
     private static final int MAX_QUESTIONS = 50;
 
-    record Persona(String name, String stage, Map<Attribute, Double> leans, boolean contestTopMatch) {}
+    /** returnCode is fixed so the presenter can sign in as a persona; it is listed in the README. */
+    record Persona(String name, String stage, String returnCode, Map<Attribute, Double> leans, boolean contestTopMatch) {}
 
     static final List<Persona> PERSONAS = List.of(
-            new Persona("Aarav (demo)", "CLASS_12", Map.of(
+            new Persona("Aarav (demo)", "CLASS_12", "DEMAAR", Map.of(
                     INVESTIGATIVE, 1.0, QUANTITATIVE, 1.0, ANALYTICAL, 0.9, PATTERN, 0.8,
                     ACHIEVEMENT, 0.7, STRUCTURE, 0.5, AUTONOMY, 0.5), false),
-            new Persona("Meera (demo)", "UNDERGRAD", Map.of(
+            new Persona("Meera (demo)", "UNDERGRAD", "DEMMRA", Map.of(
                     SOCIAL, 1.0, RELATIONSHIPS, 0.9, COLLABORATION, 0.9, VERBAL, 0.8,
                     ENTERPRISING, 0.5, AUTONOMY, -0.4), true),
-            new Persona("Kabir (demo)", "CLASS_10", Map.of(
+            new Persona("Kabir (demo)", "CLASS_10", "DEMKBR", Map.of(
                     ARTISTIC, 1.0, CREATIVE, 1.0, SPATIAL, 0.7, INDEPENDENCE, 0.7,
                     VARIETY, 0.6, AMBIGUITY_TOLERANCE, 0.5, STRUCTURE, -0.5, CONVENTIONAL, -0.6), false));
 
@@ -103,7 +104,7 @@ public class DemoSeeder implements ApplicationRunner {
     }
 
     private void seed(Persona p) {
-        String id = students.create(p.name(), p.stage()).id();
+        String id = students.create(p.name(), p.stage(), p.returnCode()).id();
         answerAll(assessment.start(id, Set.of()), p);
 
         String contested = "";

@@ -50,8 +50,11 @@ public class RecourseController {
         return students.create(body.name(), body.stage());
     }
 
-    @GetMapping("/students")
-    public List<Views.Student> list() { return students.list(); }
+    /** Returning students identify themselves with name and return code. There is no student list. */
+    @PostMapping("/students/continue")
+    public Views.Student continueStudent(@Valid @RequestBody Requests.ContinueStudent body) {
+        return students.continueWith(body.name(), body.code());
+    }
 
     @GetMapping("/students/{id}")
     public Views.Student get(@PathVariable String id) { return students.get(id); }

@@ -8,7 +8,7 @@ interface Props {
   onNavigate: (v: View) => void;
   theme: "dark" | "light";
   onToggleTheme: () => void;
-  onSwitch: () => void;
+  onSignOut: () => void;
 }
 
 const tabs: { view: View; label: string }[] = [
@@ -18,7 +18,7 @@ const tabs: { view: View; label: string }[] = [
   { view: "log", label: "Pushback log" },
 ];
 
-export function TopBar({ student, view, onNavigate, theme, onToggleTheme, onSwitch }: Props) {
+export function TopBar({ student, view, onNavigate, theme, onToggleTheme, onSignOut }: Props) {
   return (
     <header className="topbar">
       <div className="topbar__inner">
@@ -41,9 +41,10 @@ export function TopBar({ student, view, onNavigate, theme, onToggleTheme, onSwit
             <span className="who">
               {student.name}
               <span className="who__stage">{stageLabel[student.stage]}</span>
+              {student.returnCode && <span className="who__stage">Code <span className="who__code">{student.returnCode}</span></span>}
             </span>
           )}
-          {student && <button className="link-button" onClick={onSwitch}>Switch</button>}
+          {student && <button className="link-button" onClick={onSignOut}>Sign out</button>}
           <button className="link-button" onClick={onToggleTheme}
                   aria-label={`Use ${theme === "dark" ? "light" : "dark"} theme`}>
             {theme === "dark" ? "Light" : "Dark"}

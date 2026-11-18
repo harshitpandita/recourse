@@ -2,7 +2,8 @@
 
 export type Stage = "CLASS_10" | "CLASS_12" | "UNDERGRAD";
 
-export interface Student { id: string; name: string; stage: Stage; createdAt: string }
+/** returnCode is shown as "K7P-3QX". */
+export interface Student { id: string; name: string; stage: Stage; createdAt: string; returnCode: string }
 
 export interface Belief {
   attribute: string; label: string; description: string; pillar: string;
@@ -95,9 +96,9 @@ async function must<T>(p: Promise<T | null>): Promise<T> {
 
 export const api = {
   status: () => must(call<SystemStatus>("GET", "/system")),
-  students: () => must(call<Student[]>("GET", "/students")),
   student: (id: string) => must(call<Student>("GET", `/students/${id}`)),
   createStudent: (name: string, stage: Stage) => must(call<Student>("POST", "/students", { name, stage })),
+  continueStudent: (name: string, code: string) => must(call<Student>("POST", "/students/continue", { name, code })),
   profile: (id: string) => must(call<Profile>("GET", `/students/${id}/profile`)),
   evidence: (id: string) => must(call<Evidence[]>("GET", `/students/${id}/evidence`)),
   startSession: (id: string) => call<Question>("POST", `/students/${id}/sessions`),

@@ -51,6 +51,15 @@ class DemoSeederTest {
     }
 
     @Test
+    void personasHaveTheFixedCodesListedInTheReadme() {
+        assertEquals(idOf("Aarav (demo)"), students.continueWith("Aarav (demo)", "DEM-AAR").id());
+        assertEquals(idOf("Meera (demo)"), students.continueWith("meera (demo)", "dem-mra").id());
+        assertEquals(idOf("Kabir (demo)"), students.continueWith("Kabir (demo)", "DEMKBR").id());
+    }
+
+    @Autowired StudentService students;
+
+    @Test
     void runningAgainCreatesNothing() {
         long students = studentRepo.count();
         long evidence = evidenceRepo.count();

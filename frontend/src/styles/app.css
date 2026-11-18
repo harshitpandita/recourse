@@ -38,6 +38,7 @@ a { color: var(--confidence); text-underline-offset: 3px; }
 .topbar__end { margin-left: auto; display: flex; align-items: center; gap: var(--space-4); }
 .who { display: flex; flex-direction: column; line-height: 1.2; font-size: var(--step--1); text-align: right; }
 .who__stage { color: var(--text-muted); }
+.who__code { letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
 .link-button { background: none; border: 0; padding: 0; color: var(--text-secondary); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong); }
 .link-button:hover { color: var(--text); text-decoration-color: currentColor; }
 .main { max-width: 1120px; margin: 0 auto; padding: var(--space-7) var(--space-5) var(--space-8); }
@@ -103,9 +104,13 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .welcome__form .h2 { margin-bottom: var(--space-5); }
 .welcome__form .button--primary { width: 100%; }
 .returning { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--border); }
-.returning__list { list-style: none; padding: 0; margin: 0; }
-.returning__item { width: 100%; display: flex; justify-content: space-between; background: none; border: 0; padding: var(--space-2) 0; cursor: pointer; text-align: left; }
-.returning__item:hover span:first-child { text-decoration: underline; text-underline-offset: 3px; }
+.returning .h3 { margin-bottom: var(--space-1); }
+.returning > .quiet { margin: 0 0 var(--space-4); }
+.code-input { text-transform: uppercase; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+.code-input::placeholder { text-transform: none; letter-spacing: normal; }
+.code-step__code { font-size: var(--step-4); font-weight: 600; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; margin: 0 0 var(--space-4); padding: var(--space-4) 0; text-align: center; border: 1px dashed var(--border-strong); border-radius: var(--radius); background: var(--bg); }
+.code-step .actions { margin-top: var(--space-4); }
+.code-step .button--primary { width: auto; }
 
 /* ---------- Assessment ---------- */
 .assess { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: var(--space-8); }

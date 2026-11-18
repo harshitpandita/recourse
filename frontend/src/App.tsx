@@ -63,7 +63,7 @@ export function App() {
         onNavigate={setView}
         theme={theme}
         onToggleTheme={() => setTheme(t => (t === "dark" ? "light" : "dark"))}
-        onSwitch={signOut}
+        onSignOut={signOut}
       />
       <main className="main">
         {!student || view === "welcome" ? (

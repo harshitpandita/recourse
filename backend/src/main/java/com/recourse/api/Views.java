@@ -7,7 +7,8 @@ import java.util.List;
 public final class Views {
     private Views() {}
 
-    public record Student(String id, String name, String stage, Instant createdAt) {}
+    /** returnCode is shown as "K7P-3QX". */
+    public record Student(String id, String name, String stage, Instant createdAt, String returnCode) {}
 
     public record Belief(String attribute, String label, String description, String pillar,
                          double level, double confidence, double support, double contradiction,
