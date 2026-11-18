@@ -44,6 +44,31 @@ public class OllamaClient {
         }
     }
 
+    /**
+     * Asks Ollama to load the model into memory, so the first real explanation doesn't pay the
+     * loading time. An empty prompt only loads the model and generates nothing. Loading can take
+     * longer than a normal answer, so this call gets its own, longer read timeout.
+     * Returns false on any failure; callers ignore it.
+     */
+    public boolean warmUp() {
+        if (!props.enabled()) return false;
+        try {
+            SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+            factory.setConnectTimeout(Duration.ofSeconds(2));
+            factory.setReadTimeout(Duration.ofSeconds(WARM_UP_TIMEOUT_SECONDS));
+            RestClient.builder().baseUrl(props.baseUrl()).requestFactory(factory).build()
+                    .post().uri("/api/generate")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(Map.of("model", props.model(), "prompt", "", "stream", false))
+                    .retrieve().toBodilessEntity();
+            return true;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    static final int WARM_UP_TIMEOUT_SECONDS = 120;
+
     public boolean reachable() {
         if (!props.enabled()) return false;
         try {

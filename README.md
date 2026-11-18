@@ -149,7 +149,7 @@ cd backend
 mvn test
 ```
 
-This runs 90 tests:
+This runs 93 tests:
 
 | Area | Tests |
 |---|---|
@@ -160,6 +160,7 @@ This runs 90 tests:
 | Return codes: format, uniqueness, forgiving input, same answer for a wrong name or code, no student list | 11 |
 | Pilot feedback: asked only after the first contest, ratings 1 to 5, one per student, CSV export without names and with safe escaping | 7 |
 | Explanation template: the fallback text used when the language model is unavailable | 3 |
+| Model warm-up at startup: runs in the background, never blocks startup, failures are ignored | 3 |
 
 The frontend is type-checked as part of its build:
 
