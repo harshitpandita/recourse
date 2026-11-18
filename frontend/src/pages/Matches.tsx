@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api, ContestResult, Explanation, pct, Question, Recommendation, Student } from "../api";
 import { RangeMeter } from "../components/RangeMeter";
 import { Quote } from "../components/Quote";
@@ -48,7 +48,7 @@ export function Matches({ student, onStart, onFollowUp }: Props) {
       </header>
       <ol className="match-list">
         {recs.map((r, i) => (
-          <MatchRow key={r.careerId} rank={i + 1} rec={r} student={student}
+          <MatchRow key={r.careerId} rank={i + 1} rec={r} student={student} explainNow={i === 0}
                     placedForVariety={recs.slice(0, i).some(above => shownFit(above) < shownFit(r))}
                     open={open === r.careerId}
                     onToggle={() => setOpen(o => (o === r.careerId ? null : r.careerId))}
@@ -71,6 +71,8 @@ interface RowProps {
    * little), so we say so instead of leaving the order looking wrong.
    */
   placedForVariety: boolean;
+  /** Fetch the explanation as soon as the row appears, even if it is closed (used for the top match). */
+  explainNow: boolean;
   student: Student;
   open: boolean;
   onToggle: () => void;
@@ -78,20 +80,22 @@ interface RowProps {
   onFollowUp: (q: Question | null) => void;
 }
 
-function MatchRow({ rank, rec, student, placedForVariety, open, onToggle, onContested, onFollowUp }: RowProps) {
+function MatchRow({ rank, rec, student, placedForVariety, explainNow, open, onToggle, onContested, onFollowUp }: RowProps) {
   const [explanation, setExplanation] = useState<Explanation | null>(null);
   const [explaining, setExplaining] = useState(false);
+  const asked = useRef(false);
   const [contesting, setContesting] = useState(false);
   const [result, setResult] = useState<ContestResult | null>(null);
 
   useEffect(() => {
-    if (!open || explanation || explaining) return;
+    if (!(open || explainNow) || asked.current) return;
+    asked.current = true;
     setExplaining(true);
     api.explanation(student.id, rec.careerId)
       .then(setExplanation)
       .catch(() => setExplanation(null))
       .finally(() => setExplaining(false));
-  }, [open, explanation, explaining, student.id, rec.careerId]);
+  }, [open, explainNow, student.id, rec.careerId]);
 
   return (
     <li className={`match${open ? " match--open" : ""}`}>
