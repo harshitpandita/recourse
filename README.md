@@ -8,7 +8,7 @@ Most career tests give a result and stop there. Recourse treats a recommendation
 
 ## Features
 
-- **Adaptive assessment.** Each next question is the one expected to be most useful, given what the system is still unsure about. Every question comes with a plain-English reason for why it was asked. A session takes 12 to 20 questions.
+- **Adaptive assessment.** Each next question is the one expected to be most useful, given what the system is still unsure about. Every question comes with a plain-English reason for why it was asked. A session is about 20 questions, around five minutes. It can stop after 12 if nothing left is worth asking, but in the simulation evaluation every session used all 20.
 - **A student model across four pillars.** Interests (Holland's RIASEC types), work values (O\*NET Work Importance Profiler), work style, and self-reported abilities.
 - **Belief with uncertainty.** For every attribute the system keeps an estimate and a separate confidence. The UI draws both as an estimate with an uncertainty band. Contradictory answers lower confidence instead of being averaged away.
 - **Explainable matching.** Careers are ranked by deterministic rules, with pillar-weighted scores and a small diversity penalty so the top three aren't all the same kind of job. Each match shows its reasons, its concerns, and the student's own answers behind them.

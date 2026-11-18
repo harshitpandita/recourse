@@ -124,7 +124,7 @@ function Progress({ q }: { q: Question }) {
     <div className="progress">
       <span className="quiet">
         {followUp ? `Check ${n} of up to ${max}` : `Question ${n}`}
-        {!followUp && <span className="progress__of">. Most people answer {q.progress.min} to {max}.</span>}
+        {!followUp && <span className="progress__of">. About {max} questions, around five minutes.</span>}
       </span>
       <div className="progress__bar" aria-hidden="true"><span style={{ width: `${Math.min(100, (asked / max) * 100)}%` }} /></div>
     </div>
