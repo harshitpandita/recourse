@@ -1,0 +1,42 @@
+area,metric,value,kind
+Recovery,Pearson r (all),0.681350,NUM
+Recovery,Mean abs. error (all),0.158473,NUM
+Recovery,Pearson r (interests),0.751750,NUM
+Recovery,Mean abs. error (interests),0.150732,NUM
+Recovery,Pearson r (work values),0.566630,NUM
+Recovery,Mean abs. error (work values),0.170884,NUM
+Recovery,Pearson r (work style),0.688463,NUM
+Recovery,Mean abs. error (work style),0.154803,NUM
+Recovery,Pearson r (abilities),0.750329,NUM
+Recovery,Mean abs. error (abilities),0.157472,NUM
+Recovery,Right direction (all),0.896907,PCT
+Recovery,Attributes flagged contradictory per persona,1.833333,NUM
+Top-3 accuracy,Top 3 has a career from the family,0.866667,PCT
+Top-3 accuracy,Lenient (either of two strongest letters),1.000000,PCT
+Noise,Same top match (10% noise),0.660000,PCT
+Noise,Same top-3 set (10% noise),0.460000,PCT
+Noise,Average overlap (10% noise),0.713333,NUM
+Noise,Same top match (20% noise),0.486667,PCT
+Noise,Same top-3 set (20% noise),0.246667,PCT
+Noise,Average overlap (20% noise),0.597778,NUM
+Adaptivity,Questions asked (mean),20.000000,NUM
+Adaptivity,Distinct question sequences (of 30),30.000000,COUNT
+Adaptivity,Question-set overlap between two personas,0.562195,NUM
+Adaptivity,Position where two sequences first differ,4.721839,NUM
+Question curve,Pearson r after 8 questions,0.446617,NUM
+Question curve,Top-3 accuracy after 8 questions,0.800000,PCT
+Question curve,Pearson r after 12 questions,0.553067,NUM
+Question curve,Top-3 accuracy after 12 questions,0.766667,PCT
+Question curve,Pearson r after 16 questions,0.636616,NUM
+Question curve,Top-3 accuracy after 16 questions,0.800000,PCT
+Question curve,Pearson r after 20 questions,0.681350,NUM
+Question curve,Top-3 accuracy after 20 questions,0.866667,PCT
+Contest,Top match changed by the dispute,1.000000,PCT
+Contest,Top-3 set changed by the dispute,0.900000,PCT
+Contest,Drop in the disputed attribute's confidence,0.691444,NUM
+Contest,Drop in the match's confidence,0.167633,NUM
+Contest,Follow-up questions asked (mean),2.800000,NUM
+Contest,Original top match back on top after follow-ups,0.000000,PCT
+Contest,Original top match still in top 3 after follow-ups,0.266667,PCT
+Contest,Disputed attribute's level after follow-ups,0.507695,NUM
+Contest,Disputed attribute's confidence after follow-ups,0.092278,NUM
