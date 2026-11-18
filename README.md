@@ -36,7 +36,7 @@ answers ──> evidence ──> beliefs ──> matches ──> explanation
 ```
 
 1. **Evidence.** Each answer option in `questions.json` maps to one or more pieces of evidence: an attribute, a direction (supports or contradicts) and a strength. Evidence is append-only.
-2. **Belief.** For each attribute, supporting and contradicting evidence are combined separately with a noisy-OR. Each new item closes part of the remaining gap, so repeated similar answers have diminishing effect. Confidence grows with the amount of evidence and falls when the evidence disagrees with itself.
+2. **Belief.** For each attribute, supporting and contradicting evidence are combined separately with a noisy-OR. Each new item closes part of the remaining gap, so repeated similar answers have diminishing effect. Confidence grows with the amount of evidence and falls when the evidence disagrees with itself. How far it falls depends on the balance between support and contradiction, so later consistent answers can gradually win some confidence back after a dispute.
 3. **Question selection.** Each question is scored by information value × importance × reliability × discrimination ÷ effort. After at least 12 questions, the assessment stops when 70% of attributes are known with reasonable confidence or no remaining question is worth asking. It never goes past 20.
 4. **Matching.** Each career's interest weights come from its O\*NET interest code (one to three RIASEC letters, the first weighted most). Its work-value, work-style and ability weights are set by hand, informed by the O\*NET description (see [docs/career-verification.md](docs/career-verification.md)). A match combines the four pillars (interests 40%, abilities 25%, values 20%, work style 15%). Every score can be traced down to individual pieces of evidence.
 5. **Contest.** An objection adds counter-evidence, beliefs and ranking are recomputed, the change is logged, and a follow-up session focuses on the disputed attributes.
@@ -149,11 +149,11 @@ cd backend
 mvn test
 ```
 
-This runs 93 tests:
+This runs 100 tests:
 
 | Area | Tests |
 |---|---|
-| Engine: belief calculation, question selection, matching, evidence and contests | 45 |
+| Engine: belief calculation, question selection, matching, evidence and contests | 49 |
 | Data files: questions and careers load and are valid | 7 |
 | End-to-end flow through the real services and an in-memory database | 8 |
 | Demo seed: personas, their return codes, idempotency, the contest used in the live demo, and its separate database | 9 |
@@ -161,6 +161,7 @@ This runs 93 tests:
 | Pilot feedback: asked only after the first contest, ratings 1 to 5, one per student, CSV export without names and with safe escaping | 7 |
 | Explanation template: the fallback text used when the language model is unavailable | 3 |
 | Model warm-up at startup: runs in the background, never blocks startup, failures are ignored | 3 |
+| Evaluation helpers: the statistics, persona generation and simulated answering used by the evaluation | 3 |
 
 The frontend is type-checked as part of its build:
 
@@ -209,6 +210,30 @@ Results from one laptop (27 timed calls per model):
 | Kept to the requested 3 to 4 sentences | 16/27 | 23/27 | 14/27 |
 
 All three models were equally fast. Phi-4-mini was kept because it followed the instruction most relevant to Recourse, inviting the student to disagree, far more reliably.
+
+## Simulation evaluation
+
+An opt-in evaluation runs 30 simulated students through the real assessment, recommendation and contest services, with an in-memory database. It isn't part of `mvn test`:
+
+```
+cd backend
+mvn test -Pevaluation
+```
+
+It takes about 30 seconds and writes to `docs/evaluation/`:
+
+- `summary.md`: the method and all results in tables, each metric explained in one line
+- `personas.csv`: each simulated student's true leans on the 24 attributes
+- `recovery.csv`: true level against final belief, per student and attribute
+- `top3.csv`: each student's top 3 and whether it includes their target career family
+- `noise.csv`: top 3 with 10% and 20% of answers replaced by random choices
+- `adaptivity.csv`: the question sequence each student was asked
+- `contest.csv`: before and after a dispute, and after the follow-up questions
+- `question-curve.csv`: recovery and top-3 accuracy after 8, 12, 16 and 20 questions
+- `metrics.csv`: every headline number, used to compare runs
+- `baseline/`: the same evaluation with the prototype's original conflict formula, kept for comparison. `summary.md` has a before-and-after table.
+
+Each simulated student has a known true lean on every attribute and answers each question by picking the option whose evidence best agrees with it. Everything is seeded, so a rerun gives the same numbers.
 
 ## API
 
