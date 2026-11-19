@@ -16,16 +16,28 @@ export function Matches({ student, onStart, onFollowUp }: Props) {
   const [recs, setRecs] = useState<Recommendation[] | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [open, setOpen] = useState<string | null>(null);
+  /** Bumped after a contest, so every row starts fresh (new explanation, no old contest form). */
+  const [round, setRound] = useState(0);
 
-  const load = () => {
+  const load = (afterContest = false) => {
     setError(null);
     api.recommendations(student.id)
-      .then(r => { setRecs(r); setOpen(o => o ?? r[0]?.careerId ?? null); })
+      .then(r => {
+        setRecs(r);
+        if (afterContest) {
+          // The ranking may have changed: open the new top match and show it from the top
+          setRound(n => n + 1);
+          setOpen(r[0]?.careerId ?? null);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          setOpen(o => o ?? r[0]?.careerId ?? null);
+        }
+      })
       .catch(setError);
   };
-  useEffect(load, [student.id]);
+  useEffect(() => load(), [student.id]);
 
-  if (error) return <ErrorNote error={error} onRetry={load} />;
+  if (error) return <ErrorNote error={error} onRetry={() => load()} />;
   if (!recs) return <Loading what="your matches" />;
   if (recs.length === 0) {
     return (
@@ -46,13 +58,19 @@ export function Matches({ student, onStart, onFollowUp }: Props) {
           wider means less sure.
         </p>
       </header>
+      {!student.assessmentComplete && (
+        <div className="banner banner--action">
+          <p>You're partway through the questions, so these are early guesses. They'll sharpen as you answer more.</p>
+          <button className="button button--ghost button--sm" onClick={onStart}>Carry on with the questions</button>
+        </div>
+      )}
       <ol className="match-list">
         {recs.map((r, i) => (
-          <MatchRow key={r.careerId} rank={i + 1} rec={r} student={student} explainNow={i === 0}
+          <MatchRow key={`${r.careerId}-${round}`} rank={i + 1} rec={r} student={student} explainNow={i === 0}
                     placedForVariety={recs.slice(0, i).some(above => shownFit(above) < shownFit(r))}
                     open={open === r.careerId}
                     onToggle={() => setOpen(o => (o === r.careerId ? null : r.careerId))}
-                    onContested={load} onFollowUp={onFollowUp} />
+                    onContested={() => load(true)} onFollowUp={onFollowUp} />
         ))}
       </ol>
     </div>
@@ -83,9 +101,13 @@ interface RowProps {
 function MatchRow({ rank, rec, student, placedForVariety, explainNow, open, onToggle, onContested, onFollowUp }: RowProps) {
   const [explanation, setExplanation] = useState<Explanation | null>(null);
   const [explaining, setExplaining] = useState(false);
+  const [explainFailed, setExplainFailed] = useState(false);
   const asked = useRef(false);
   const [contesting, setContesting] = useState(false);
   const [result, setResult] = useState<ContestResult | null>(null);
+  const row = useRef<HTMLLIElement>(null);
+  /** Set when the student opens this row, so it scrolls into view (not when it opens by itself). */
+  const scrollOnOpen = useRef(false);
 
   useEffect(() => {
     if (!(open || explainNow) || asked.current) return;
@@ -93,13 +115,25 @@ function MatchRow({ rank, rec, student, placedForVariety, explainNow, open, onTo
     setExplaining(true);
     api.explanation(student.id, rec.careerId)
       .then(setExplanation)
-      .catch(() => setExplanation(null))
+      .catch(() => setExplainFailed(true))
       .finally(() => setExplaining(false));
   }, [open, explainNow, student.id, rec.careerId]);
 
+  useEffect(() => {
+    if (!open || !scrollOnOpen.current) return;
+    scrollOnOpen.current = false;
+    // Wait a frame so the row above has finished collapsing before measuring
+    requestAnimationFrame(() => row.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, [open]);
+
+  const toggle = () => {
+    scrollOnOpen.current = !open;
+    onToggle();
+  };
+
   return (
-    <li className={`match${open ? " match--open" : ""}`}>
-      <button className="match__summary" onClick={onToggle} aria-expanded={open}>
+    <li ref={row} className={`match${open ? " match--open" : ""}`}>
+      <button className="match__summary" onClick={toggle} aria-expanded={open}>
         <span className="match__rank" aria-label={`Match ${rank}`}>{rank}</span>
         <span className="match__title">
           <span className="match__name">{rec.title}</span>
@@ -135,6 +169,9 @@ function MatchRow({ rank, rec, student, placedForVariety, explainNow, open, onTo
               )}
               <h3 className="h3">In plain words</h3>
               {explaining && <p className="quiet">Writing an explanation…</p>}
+              {explainFailed && (
+                <p className="quiet">We couldn't write an explanation just now. The reasons above are what this match is based on.</p>
+              )}
               {explanation && (
                 <>
                   <p className="explanation">{explanation.text}</p>
@@ -178,7 +215,7 @@ function MatchRow({ rank, rec, student, placedForVariety, explainNow, open, onTo
               <div className="actions">
                 {result.followUp && (
                   <button className="button button--primary" onClick={() => onFollowUp(result.followUp)}>
-                    Answer {result.followUp.progress.max} quick questions to settle this
+                    Answer a few quick questions to check this
                   </button>
                 )}
                 <button className="button button--ghost" onClick={() => { setResult(null); onContested(); }}>

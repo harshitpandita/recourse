@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { api, Belief, ContestResult, Evidence, Profile, Question, Student } from "../api";
 import { RangeMeter } from "../components/RangeMeter";
 import { Quote } from "../components/Quote";
@@ -59,7 +59,7 @@ export function Model({ student, onFollowUp }: { student: Student; onFollowUp: (
           <div className="actions">
             {result.followUp && (
               <button className="button button--primary" onClick={() => onFollowUp(result.followUp)}>
-                Answer {result.followUp.progress.max} quick questions to settle this
+                Answer a few quick questions to check this
               </button>
             )}
             <button className="button button--ghost" onClick={() => setResult(null)}>Done</button>
@@ -128,7 +128,9 @@ function EvidenceItem({ e, student, onContested }: { e: Evidence; student: Stude
   const [error, setError] = useState<unknown>(null);
   const canDispute = e.source !== "contest" && e.direction !== "neutral" && e.disputedBy.length === 0;
 
-  async function dispute() {
+  async function dispute(ev: FormEvent) {
+    ev.preventDefault();
+    if (busy) return;
     setBusy(true);
     setError(null);
     try {
@@ -148,13 +150,13 @@ function EvidenceItem({ e, student, onContested }: { e: Evidence; student: Stude
         {canDispute && !asking && <button className="link-button" onClick={() => setAsking(true)}>That's not me</button>}
       </div>
       {asking && (
-        <div className="evidence__dispute">
-          <input value={reason} onChange={x => setReason(x.target.value)} maxLength={500}
+        <form className="evidence__dispute" onSubmit={dispute}>
+          <input value={reason} onChange={x => setReason(x.target.value)} maxLength={500} autoFocus
                  placeholder="I picked that, but it doesn't really describe me" aria-label="Why this isn't you (optional)" />
-          <button className="button button--primary button--sm" onClick={dispute} disabled={busy}>{busy ? "Saving…" : "Dispute"}</button>
-          <button className="button button--ghost button--sm" onClick={() => setAsking(false)}>Cancel</button>
+          <button className="button button--primary button--sm" disabled={busy}>{busy ? "Saving…" : "Dispute"}</button>
+          <button type="button" className="button button--ghost button--sm" onClick={() => setAsking(false)}>Cancel</button>
           {error != null && <ErrorNote error={error} />}
-        </div>
+        </form>
       )}
     </div>
   );
