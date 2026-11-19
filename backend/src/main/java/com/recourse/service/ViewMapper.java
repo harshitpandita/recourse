@@ -33,9 +33,9 @@ public class ViewMapper {
 
     static double round(double v) { return Math.round(v * 1000) / 1000.0; }
 
-    public Views.Student student(StudentEntity s) {
+    public Views.Student student(StudentEntity s, boolean assessmentComplete) {
         return new Views.Student(s.getId(), s.getName(), s.getStage(), s.getCreatedAt(),
-                ReturnCodes.format(s.getReturnCode()));
+                ReturnCodes.format(s.getReturnCode()), assessmentComplete);
     }
 
     public Views.Belief belief(Belief b) {

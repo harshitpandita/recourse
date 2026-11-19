@@ -60,8 +60,7 @@ public class StudentService {
     Views.Student create(String name, String stage, String returnCode) {
         if (!STAGES.contains(stage)) throw new IllegalArgumentException("Stage must be one of " + STAGES);
         if (!ReturnCodes.isValid(returnCode)) throw new IllegalArgumentException("Not a valid return code");
-        return views.student(students.save(
-                new StudentEntity(Ids.next(), name.strip(), stage, Instant.now(), returnCode)));
+        return view(students.save(new StudentEntity(Ids.next(), name.strip(), stage, Instant.now(), returnCode)));
     }
 
     /** A returning student: name (any case) and return code (any case, spaces or hyphens ignored) must match. */
@@ -70,7 +69,7 @@ public class StudentService {
         String wanted = name == null ? "" : name.strip();
         return students.findByReturnCode(code)
                 .filter(s -> s.getName().equalsIgnoreCase(wanted))
-                .map(views::student)
+                .map(this::view)
                 .orElseThrow(() -> new NotFoundException(NO_MATCH));
     }
 
@@ -93,7 +92,11 @@ public class StudentService {
     }
 
     public Views.Student get(String id) {
-        return views.student(entity(id));
+        return view(entity(id));
+    }
+
+    private Views.Student view(StudentEntity s) {
+        return views.student(s, assessment.isComplete(s.getId()));
     }
 
     public Views.Profile profile(String id) {
@@ -102,7 +105,7 @@ public class StudentService {
         Map<Attribute, Belief> beliefs = BeliefCalculator.computeAll(evidence);
         List<Views.Belief> contradictions = beliefs.values().stream().filter(Belief::contradictory)
                 .sorted(Comparator.comparingDouble(Belief::confidence)).map(views::belief).toList();
-        return new Views.Profile(views.student(s), evidence.size(),
+        return new Views.Profile(view(s), evidence.size(),
                 contests.findByStudentIdOrderByCreatedAtDesc(id).size(),
                 assessment.questionsAnswered(id), views.pillars(beliefs), contradictions);
     }

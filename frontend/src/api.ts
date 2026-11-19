@@ -2,8 +2,10 @@
 
 export type Stage = "CLASS_10" | "CLASS_12" | "UNDERGRAD";
 
-/** returnCode is shown as "K7P-3QX". */
-export interface Student { id: string; name: string; stage: Stage; createdAt: string; returnCode: string }
+/** returnCode is shown as "K7P-3QX". assessmentComplete: the main questions are done (follow-ups don't count). */
+export interface Student {
+  id: string; name: string; stage: Stage; createdAt: string; returnCode: string; assessmentComplete: boolean;
+}
 
 export interface Belief {
   attribute: string; label: string; description: string; pillar: string;
@@ -110,7 +112,6 @@ export const api = {
   profile: (id: string) => must(call<Profile>("GET", `/students/${id}/profile`)),
   evidence: (id: string) => must(call<Evidence[]>("GET", `/students/${id}/evidence`)),
   startSession: (id: string) => call<Question>("POST", `/students/${id}/sessions`),
-  next: (sessionId: string) => call<Question>("GET", `/sessions/${sessionId}/next`),
   answer: (sessionId: string, questionId: string, optionId: string) =>
     must(call<AnswerResult>("POST", `/sessions/${sessionId}/answers`, { questionId, optionId })),
   recommendations: (id: string) => must(call<Recommendation[]>("GET", `/students/${id}/recommendations`)),

@@ -47,13 +47,82 @@ public class AssessmentService {
         this.views = views;
     }
 
+    /**
+     * The next question for this student.
+     *
+     * With a focus (after a contest), a new follow-up session starts, and any older follow-up the
+     * student left unfinished is closed, since the new objection supersedes it.
+     *
+     * Without a focus, the student carries on where they left off, so leaving or reloading the page
+     * never restarts the count: first an unfinished follow-up, then the unfinished main session with
+     * the most answers. Empty duplicate main sessions (two requests arriving at once, or older
+     * versions that opened one on every visit) are removed. If the main assessment is already done
+     * and nothing is unfinished, there is nothing to ask (null).
+     */
     @Transactional
     public Views.Question start(String studentId, Set<Attribute> focus) {
         if (!students.existsById(studentId)) throw new NotFoundException("No student " + studentId);
-        String focusText = focus == null || focus.isEmpty() ? null
-                : focus.stream().map(Attribute::key).sorted().collect(Collectors.joining(","));
-        SessionEntity s = sessions.save(new SessionEntity(Ids.next(), studentId, Instant.now(), focusText));
-        return next(s.getId());
+        List<SessionEntity> open = sessions.findByStudentIdAndCompletedAtIsNullOrderByStartedAtDesc(studentId);
+
+        if (focus != null && !focus.isEmpty()) {
+            Instant now = Instant.now();
+            for (SessionEntity old : open) {
+                if (isFollowUp(old)) {
+                    old.complete(now);
+                    sessions.save(old);
+                }
+            }
+            String focusText = focus.stream().map(Attribute::key).sorted().collect(Collectors.joining(","));
+            return next(sessions.save(new SessionEntity(Ids.next(), studentId, now, focusText)).getId());
+        }
+
+        for (SessionEntity s : open) {
+            if (!isFollowUp(s)) continue;
+            Views.Question q = next(s.getId()); // completes the session instead if nothing is left to ask
+            if (q != null) return q;
+        }
+
+        boolean complete = isComplete(studentId);
+        SessionEntity resume = null;
+        int most = -1;
+        for (SessionEntity s : open) {
+            if (isFollowUp(s)) continue;
+            int count = answers.findBySessionIdOrderByAnsweredAtAsc(s.getId()).size();
+            if (count > most) {
+                if (resume != null && most == 0) discard(resume);
+                resume = s;
+                most = count;
+            } else if (count == 0) {
+                discard(s);
+            }
+        }
+        if (resume != null && most == 0 && complete) {
+            discard(resume);
+            resume = null;
+        }
+        if (resume != null) {
+            Views.Question q = next(resume.getId());
+            if (q != null) return q;
+        }
+        if (complete || isComplete(studentId)) return null;
+        return next(sessions.save(new SessionEntity(Ids.next(), studentId, Instant.now(), null)).getId());
+    }
+
+    /**
+     * Removes a main session with no answers. It holds no evidence, and marking it complete instead
+     * would wrongly count as finishing the assessment.
+     */
+    private void discard(SessionEntity s) {
+        sessions.deleteOpen(s.getId());
+    }
+
+    /** True once the student has finished the main assessment. */
+    public boolean isComplete(String studentId) {
+        return sessions.existsByStudentIdAndFocusIsNullAndCompletedAtIsNotNull(studentId);
+    }
+
+    private static boolean isFollowUp(SessionEntity s) {
+        return s.getFocus() != null && !s.getFocus().isBlank();
     }
 
     /** The next question for this session, or null when the session is finished. */

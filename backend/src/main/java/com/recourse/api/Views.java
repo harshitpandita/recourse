@@ -8,7 +8,9 @@ public final class Views {
     private Views() {}
 
     /** returnCode is shown as "K7P-3QX". */
-    public record Student(String id, String name, String stage, Instant createdAt, String returnCode) {}
+    /** assessmentComplete: the student has finished the main questions (follow-ups after a contest don't count). */
+    public record Student(String id, String name, String stage, Instant createdAt, String returnCode,
+                          boolean assessmentComplete) {}
 
     public record Belief(String attribute, String label, String description, String pillar,
                          double level, double confidence, double support, double contradiction,
