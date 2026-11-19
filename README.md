@@ -149,7 +149,7 @@ cd backend
 mvn test
 ```
 
-This runs 100 tests:
+This runs 108 tests:
 
 | Area | Tests |
 |---|---|
@@ -159,7 +159,8 @@ This runs 100 tests:
 | Demo seed: personas, their return codes, idempotency, the contest used in the live demo, and its separate database | 9 |
 | Return codes: format, uniqueness, forgiving input, same answer for a wrong name or code, no student list | 11 |
 | Pilot feedback: asked only after the first contest, ratings 1 to 5, one per student, CSV export without names and with safe escaping | 7 |
-| Explanation template: the fallback text used when the language model is unavailable | 3 |
+| Explanations: the fallback template, and removing a letter-style greeting or sign-off from the model's text | 5 |
+| Resuming the questions: a reload continues the same session and count, a finished student isn't asked again, unfinished follow-ups are picked up | 6 |
 | Model warm-up at startup: runs in the background, never blocks startup, failures are ignored | 3 |
 | Evaluation helpers: the statistics, persona generation and simulated answering used by the evaluation | 3 |
 
@@ -245,7 +246,7 @@ All endpoints are under `/api/v1`.
 | POST | `/students` | Create a student; the response includes their return code |
 | POST | `/students/continue` | Come back with name and return code (there is no endpoint that lists students) |
 | GET | `/students/{id}`, `/students/{id}/profile`, `/students/{id}/evidence` | Student, belief profile, full evidence trail |
-| POST | `/students/{id}/sessions` | Start an assessment session |
+| POST | `/students/{id}/sessions` | Start the questions, or carry on where the student left off (204 when there is nothing left to ask) |
 | GET | `/sessions/{sessionId}/next` | Next question, with the reason it was chosen |
 | POST | `/sessions/{sessionId}/answers` | Answer a question; returns how beliefs changed |
 | GET | `/students/{id}/recommendations` | Top three matches with reasons, concerns and evidence |
