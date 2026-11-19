@@ -526,7 +526,7 @@
       },
       {
         "id": "c",
-        "text": "Guessed a number that seemed reasonable.",
+        "text": "Couldn't work it out, so I guessed.",
         "evidence": [
           {
             "attribute": "pattern",

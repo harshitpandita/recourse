@@ -42,7 +42,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "data-scientist",
@@ -85,7 +85,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "civil-engineer",
@@ -129,7 +129,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "mechanical-engineer",
@@ -171,7 +171,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "doctor",
@@ -219,7 +219,7 @@
         "url": "https://www.nmc.org.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "nurse",
@@ -261,7 +261,7 @@
         "url": "https://www.indiannursingcouncil.org"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "pharmacist",
@@ -301,7 +301,7 @@
         "url": "https://www.pci.nic.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "clinical-psychologist",
@@ -348,7 +348,7 @@
         "url": "https://rehabcouncil.nic.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "school-teacher",
@@ -391,7 +391,7 @@
         "url": "https://ctet.nic.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "lawyer",
@@ -439,7 +439,7 @@
         "url": "https://www.barcouncilofindia.org"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "chartered-accountant",
@@ -479,7 +479,7 @@
         "url": "https://www.icai.org"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "financial-analyst",
@@ -521,7 +521,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "economist",
@@ -564,7 +564,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "marketing-manager",
@@ -608,7 +608,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "entrepreneur",
@@ -652,7 +652,7 @@
         "url": "https://www.startupindia.gov.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "management-consultant",
@@ -692,7 +692,7 @@
         "url": "https://www.onetonline.org/link/summary/13-1111.00"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "graphic-designer",
@@ -737,7 +737,7 @@
         "url": "https://www.uceed.iitb.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "ux-designer",
@@ -780,7 +780,7 @@
         "url": "https://www.uceed.iitb.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "architect",
@@ -822,7 +822,7 @@
         "url": "https://www.coa.gov.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "journalist",
@@ -868,7 +868,7 @@
         "url": "https://iimc.gov.in/files/announcements/Admission-Notice-2026-27.pdf"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "research-scientist",
@@ -912,7 +912,7 @@
         "url": "https://www.iiseradmission.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "chef",
@@ -952,7 +952,7 @@
         "url": "https://nta.ac.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "electrician",
@@ -991,7 +991,7 @@
         "url": "https://dgt.gov.in"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "social-worker",
@@ -1035,7 +1035,7 @@
         "url": "https://admissions.tiss.ac.in/view/6/admissions/ma-admissions/selection-procedure/"
       }
     ],
-    "verified": false
+    "verified": true
   },
   {
     "id": "civil-servant",
@@ -1074,6 +1074,6 @@
         "url": "https://upsc.gov.in"
       }
     ],
-    "verified": false
+    "verified": true
   }
 ]
