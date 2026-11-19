@@ -22,9 +22,6 @@ Thumbs.db
 # Transfer folder
 _incoming/
 
-# Local working notes (not part of the repo)
-docs/STATUS.md
+# Personal working notes (not part of the repo)
+notes/
 prototypes/**/PROJECT_CONTEXT.md
-docs/PLAN.md
-docs/EVAL-KIT.md
-docs/manual-testing.md
