@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -42,6 +43,7 @@ public class ExplanationService {
         long start = System.currentTimeMillis();
         String facts = facts(r);
         return llm.generate(prompt(r, facts))
+                .map(ExplanationService::tidy)
                 .filter(ExplanationService::usable)
                 .map(text -> new Views.Explanation(careerId, text, "llm:" + llm.model(), System.currentTimeMillis() - start))
                 .orElseGet(() -> new Views.Explanation(careerId, template(r), "template", System.currentTimeMillis() - start));
@@ -76,10 +78,34 @@ public class ExplanationService {
                 Refer to one or two things the student said. If there is a concern, mention it honestly.
                 End by reminding them they can disagree if this doesn't sound like them.
                 Do not use headings, bullet points or emojis.
+                It is not a letter: no greeting such as "Dear student" and no sign-off. Start directly with the career.
 
                 FACTS:
                 %s
                 """.formatted(facts);
+    }
+
+    /** "Dear Student," or "Hi there!" at the very start. */
+    private static final Pattern GREETING = Pattern.compile(
+            "^\\s*(dear|hi|hello|hey|greetings)\\b[^,!.\\n]{0,40}[,!]\\s*", Pattern.CASE_INSENSITIVE);
+    /** "I hope you're doing well." right after it. */
+    private static final Pattern PLEASANTRY = Pattern.compile(
+            "^\\s*I hope (you're|you are|this (message|note) finds you)[^.!]*[.!]\\s*", Pattern.CASE_INSENSITIVE);
+    /** "Best regards, ..." on its own line at the end, and anything after it. */
+    private static final Pattern SIGN_OFF = Pattern.compile(
+            "\\n\\s*(best|warm|kind)?\\s*(regards|wishes|sincerely|cheers|yours)[\\s\\S]*$", Pattern.CASE_INSENSITIVE);
+
+    /**
+     * Small models sometimes write the note as a letter despite the prompt. Removes an opening
+     * greeting ("Dear Student,"), a stock pleasantry ("I hope you're doing well.") and a closing
+     * sign-off, leaving the content untouched.
+     */
+    static String tidy(String text) {
+        String t = GREETING.matcher(text).replaceFirst("");
+        t = PLEASANTRY.matcher(t).replaceFirst("");
+        t = SIGN_OFF.matcher(t).replaceFirst("");
+        t = t.strip();
+        return t.isEmpty() ? t : Character.toUpperCase(t.charAt(0)) + t.substring(1);
     }
 
     static boolean usable(String text) {

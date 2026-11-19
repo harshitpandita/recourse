@@ -42,4 +42,20 @@ class ExplanationServiceTest {
         assertTrue(text.contains("tell us what we got wrong"), text);
         assertTrue(ExplanationService.usable(text), "the template should pass the same check as the model");
     }
+
+    @Test
+    void tidyRemovesALetterStyleGreetingPleasantryAndSignOff() {
+        String raw = "Dear Student, I hope you're doing well. I noticed that you enjoy puzzles, which suits data science."
+                + " You can always disagree.\n\nBest regards,\nYour advisor";
+        assertEquals("I noticed that you enjoy puzzles, which suits data science. You can always disagree.",
+                ExplanationService.tidy(raw));
+        assertEquals("Hello world aside, you like maths.", ExplanationService.tidy("Hi there! hello world aside, you like maths."));
+    }
+
+    @Test
+    void tidyLeavesOrdinaryTextAlone() {
+        String text = "History teacher came up because you enjoy explaining things. Highly social work suits you.";
+        assertEquals(text, ExplanationService.tidy(text));
+        assertEquals("Hearing your answers, design fits.", ExplanationService.tidy("Hearing your answers, design fits."));
+    }
 }
